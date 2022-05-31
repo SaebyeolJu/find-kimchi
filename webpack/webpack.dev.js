@@ -12,5 +12,6 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.name": JSON.stringify("Nova"),
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
 };
