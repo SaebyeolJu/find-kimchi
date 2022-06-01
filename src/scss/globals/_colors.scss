@@ -1,0 +1,33 @@
+// @forward ''
+
+:root {
+    /* colors */
+    --clr-black: 0 0% 0%;
+    --clr-white: 100 100% 99%;
+    --clr-red: 355 76% 56%;
+    --clr-grey: 0 2% 72%
+  
+    --clr-dark-blue: 214 48% 23%;
+    --clr-light-blue: 203 37% 45%;
+  
+    --clr-dark-yellow: 33 89% 57%;
+    --clr-light-yellow: 38 95% 66%;
+
+  }
+
+  /* colors */
+  .bg-black{background-color: #{'hsl(var(--clr-black))'};}
+  .bg-white{background-color: #{'hsl(var(--clr-white))'};}
+  .bg-red{background-color: #{'hsl(var(--clr-red))'};}
+  .bg-grey{background-color: #{'hsl(var(--clr-grey))'};}
+  
+  .bg-dark-blue{background-color: #{'hsl(var(--clr-dark-blue))'};}
+  .bg-light-blue{background-color: #{'hsl(var(--clr-light-blue))'};}
+  
+  .bg-dark-yellow{background-color: #{'hsl(var(--clr-dark-yellow))'};}
+  .bg-light-yellow{background-color: #{'hsl(var(--clr-light-yellow))'};}
+  
+  /* text color */
+  .text-dark{color: #{'hsl(var(--clr-dark))'};}
+  .text-white{color: #{'hsl(var(--clr-white))'};}
+  .text-grey{color: #{'hsl(var(--clr-grey))'};}
