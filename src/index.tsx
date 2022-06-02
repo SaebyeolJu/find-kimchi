@@ -1,4 +1,7 @@
-import ReactDOM from "react-dom";
-import Main from "./pages/main";
+import Main from "./pages/Main";
+import { createRoot } from "react-dom/client";
+import "./css/styles.css";
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(<Main />);

@@ -1,10 +1,14 @@
-@use "../styles.scss";
-
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
 
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
 /* Reset margins */
+html,
 body,
 h1,
 h2,
@@ -16,11 +20,6 @@ figure,
 picture {
   margin: 0;
   padding: 0;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 100%;
 }
 
 /* Box sizing */

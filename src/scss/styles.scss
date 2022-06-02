@@ -1,8 +1,6 @@
-@import "./global";
-
+@use "./globals" as *;
 
 .logo-img {
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 130px;
 }
-

@@ -1,4 +1,116 @@
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 100%;
+}
+
+/* Reset margins */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+  padding: 0;
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+:root {
+  /* colors */
+  --clr-black: 0 0% 0%;
+  --clr-white: 100 100% 99%;
+  --clr-red: 355 76% 56%;
+  --clr-grey: 0 2% 72%
+
+  --clr-dark-blue: 214 48% 23%;
+  --clr-light-blue: 203 37% 45%;
+  --clr-dark-yellow: 33 89% 57%;
+  --clr-light-yellow: 38 95% 66%;
+}
+
+/* colors */
+.bg-black {
+  background-color: hsl(var(--clr-black));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-red {
+  background-color: hsl(var(--clr-red));
+}
+
+.bg-grey {
+  background-color: hsl(var(--clr-grey));
+}
+
+.bg-dark-blue {
+  background-color: hsl(var(--clr-dark-blue));
+}
+
+.bg-light-blue {
+  background-color: hsl(var(--clr-light-blue));
+}
+
+.bg-dark-yellow {
+  background-color: hsl(var(--clr-dark-yellow));
+}
+
+.bg-light-yellow {
+  background-color: hsl(var(--clr-light-yellow));
+}
+
+/* text color */
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.text-grey {
+  color: hsl(var(--clr-grey));
+}
+
 .logo-img {
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 130px;
 }

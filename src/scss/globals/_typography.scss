@@ -1,14 +1,12 @@
-@use "../util" as u;
-
 // 2022 ㅣ google font에 security issue가 있어서 다운 받아서 썼음
-@font-face {
-  font-family: --ff-main-kr;
-  src: url("../../assets/font/GowunDodum-Regular.ttf") format("truetype");
-}
+// @font-face {
+//   font-family: --ff-main-kr;
+//   src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
+// }
 
 // @font-face {
 //   font-family: --ff-main-eng;
-//   src: url('') format('truetype')
+//   src: url("../assets/font/Raleway/Raleway-Medium.ttf") format("truetype");
 // }
 
 h1,
