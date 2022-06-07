@@ -1,6 +1,113 @@
 @use "./globals" as *;
+// @use "./components/" as *;
+
+html {
+  background-image: url("/src/assets/img/background_pic.svg");
+  background-repeat: no-repeat;
+  object-fit: contain;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 26px;
+}
+
+.input_box {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  width: 400px;
+  height: 45px;
+  border: 3px solid #ccc;
+  margin: 0 auto;
+  transition: 0.5s;
+
+  &:hover {
+    border: 3px solid darkred;
+  }
+
+  input {
+    width: 340px;
+  }
+
+  svg {
+    margin-left: 10px;
+    color: #ccc;
+  }
+}
+
+svg {
+  height: 32px;
+  width: 32px;
+}
 
 .logo-img {
-  width: 130px;
-  height: 130px;
+  height: 120px;
+  width: 120px;
+}
+
+.btn {
+  border-radius: 30px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  margin: 0 auto;
+
+  &:focus-visible {
+    cursor: pointer;
+    background-color: cadetblue;
+    transform: scale(1.2);
+  }
+}
+
+.icon_box {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+
+  svg {
+    transition: 0.8s;
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+      color: cadetblue;
+    }
+  }
+}
+
+.search-img {
+  height: 170px;
+  border-radius: 50px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  // gap: 26px;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin: 0 auto;
+}
+
+.field-title-box {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }

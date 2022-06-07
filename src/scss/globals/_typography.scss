@@ -1,8 +1,11 @@
 // 2022 ㅣ google font에 security issue가 있어서 다운 받아서 썼음
-// @font-face {
-//   font-family: --ff-main-kr;
-//   src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
-// }
+
+$main-kr: "Gowun Dodum", sans-serif;
+
+@font-face {
+  font-family: "Gowun Dodum", sans-serif;
+  src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
+}
 
 // @font-face {
 //   font-family: --ff-main-eng;
@@ -19,4 +22,10 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
+  color: inherit;
+}
+
+* {
+  font-family: $main-kr;
+  color: white;
 }

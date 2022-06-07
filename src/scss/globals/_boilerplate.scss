@@ -7,6 +7,11 @@ html {
   font-size: 100%;
 }
 
+body,
+:root {
+  height: 100vh;
+}
+
 /* Reset margins */
 html,
 body,
@@ -31,9 +36,11 @@ picture {
 
 /* make form elements easier to work with */
 input,
+input:focus,
 button,
 textarea,
 select {
   font: inherit;
   border: none;
+  outline: none;
 }
