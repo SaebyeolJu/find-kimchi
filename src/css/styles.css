@@ -46,6 +46,10 @@ select {
   outline: none;
 }
 
+.spacing {
+  gap: 36px;
+}
+
 @font-face {
   font-family: "Gowun Dodum", sans-serif;
   src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
@@ -115,19 +119,19 @@ a:active {
 }
 
 /* text color */
-.text-dark-blue {
+.text--dark-blue {
   color: hsl(var(--clr-dark-blue));
 }
 
-.text-dark {
+.text--dark {
   color: hsl(var(--clr-dark));
 }
 
-.text-white {
+.text--white {
   color: hsl(var(--clr-white));
 }
 
-.text-grey {
+.text--grey {
   color: hsl(var(--clr-grey));
 }
 
@@ -141,14 +145,23 @@ html {
   background-repeat: no-repeat;
   -o-object-fit: contain;
      object-fit: contain;
-  height: 100vh;
 }
 
-.container {
+#root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  width: 60vh;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -157,10 +170,10 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  gap: 26px;
+  gap: 36px;
 }
 
-.input_box {
+.search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,13 +188,13 @@ html {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.input_box:hover {
+.search:hover {
   border: 3px solid darkred;
 }
-.input_box input {
+.search__form {
   width: 340px;
 }
-.input_box svg {
+.search__icon {
   margin-left: 10px;
   color: #ccc;
 }
@@ -191,7 +204,7 @@ svg {
   width: 32px;
 }
 
-.logo-img {
+.logo__img {
   height: 120px;
   width: 120px;
 }
@@ -268,4 +281,22 @@ svg {
 .field-title-box svg {
   width: 16px;
   height: 16px;
+}
+
+.answer-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 48px;
+}
+.answer-box svg {
+  height: 100px;
+  width: 100px;
+}
+
+.answer-card:hover {
+  cursor: pointer;
 }

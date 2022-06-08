@@ -5,19 +5,24 @@ html {
   background-image: url("/src/assets/img/background_pic.svg");
   background-repeat: no-repeat;
   object-fit: contain;
-  height: 100vh;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  display: flex;
+  width: 60vh;
   height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  gap: 26px;
+  gap: 36px;
 }
 
-.input_box {
+.search {
   display: flex;
   align-items: center;
   border-radius: 30px;
@@ -31,11 +36,11 @@ html {
     border: 3px solid darkred;
   }
 
-  input {
+  &__form {
     width: 340px;
   }
 
-  svg {
+  &__icon {
     margin-left: 10px;
     color: #ccc;
   }
@@ -46,7 +51,7 @@ svg {
   width: 32px;
 }
 
-.logo-img {
+.logo__img {
   height: 120px;
   width: 120px;
 }
@@ -109,5 +114,22 @@ svg {
   svg {
     width: 16px;
     height: 16px;
+  }
+}
+
+.answer-box {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+
+  svg {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.answer-card {
+  &:hover {
+    cursor: pointer;
   }
 }

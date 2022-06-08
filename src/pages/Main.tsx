@@ -11,31 +11,33 @@ export default function Main() {
 
   return (
     <div className="container">
-      <div className="logo_box">
+      <div className="logo">
         <img
-          className="logo-img"
+          className="logo__img"
           src="https://cdn-icons-png.flaticon.com/512/4727/4727309.png"
-          alt="logo"
+          alt="logo__img"
         />
-        <h1 className="logo --ff-main text-white">김치있니?</h1>
+        <h1 className="logo__name text--white">김치있니?</h1>
       </div>
-      <div className="input_box center bg-white">
-        <AiIcons.AiOutlineSearch />
-        <input 
+      <form className="search bg-white">
+        <AiIcons.AiOutlineSearch className="search__icon" />
+        <input
           type="search"
-          placeholder="김치 재료를 입력하세요."
-          className="text-grey"
+          placeholder="재료를 입력하세요."
+          className="search__form"
           value={ingredient}
           onSubmit={handleSearchInput}
         ></input>
-      </div>
-      <button className="btn text-white">O / X 게임</button>
+      </form>
+      <button type="submit" className="btn">
+        O / X 게임
+      </button>
       <div className="icon_box">
         <a>
-          <IoIcons.IoMdGlobe className="text-white" />
+          <IoIcons.IoMdGlobe className="text--white" />
         </a>
         <a href="https://github.com/SaebyeolJu/find-kimchi">
-          <AiIcons.AiFillGithub className="text-white" />
+          <AiIcons.AiFillGithub className="text--white" />
         </a>
       </div>
     </div>
