@@ -46,11 +46,6 @@ html {
   }
 }
 
-svg {
-  height: 32px;
-  width: 32px;
-}
-
 .logo__img {
   height: 120px;
   width: 120px;
@@ -72,12 +67,12 @@ svg {
   }
 }
 
-.icon_box {
+.icons {
   display: flex;
   gap: 20px;
   margin: 0 auto;
 
-  svg {
+  &__icon {
     transition: 0.8s;
     cursor: pointer;
     color: white;
@@ -88,7 +83,7 @@ svg {
   }
 }
 
-.search-img {
+.search__img {
   height: 170px;
   border-radius: 50px;
 }
@@ -99,37 +94,42 @@ svg {
   // gap: 26px;
 }
 
-.search-box {
+.reports {
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  margin: 0 auto;
-}
-
-.field-title-box {
-  display: flex;
-  gap: 4px;
   justify-content: center;
+  gap: 8px;
 
-  svg {
+  &__label-field {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__Info-icon {
     width: 16px;
     height: 16px;
   }
+
+  &__input {
+    border-radius: 4px;
+    color: black;
+  }
 }
 
-.answer-box {
+.answer {
   display: flex;
   justify-content: center;
   gap: 48px;
 
-  svg {
+  &__icon {
     height: 100px;
     width: 100px;
   }
-}
 
-.answer-card {
-  &:hover {
-    cursor: pointer;
+  &__card {
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

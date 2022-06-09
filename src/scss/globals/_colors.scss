@@ -26,10 +26,7 @@
   .bg-light-yellow{background-color: #{'hsl(var(--clr-light-yellow))'};}
   
   /* text color */
-  .text--dark-blue{color: #{'hsl(var(--clr-dark-blue))'};}
-  .text--dark{color: #{'hsl(var(--clr-dark))'};}
-  .text--white{color: #{'hsl(var(--clr-white))'};}
-  .text--grey{color: #{'hsl(var(--clr-grey))'};}
-
-  /* other color */
-  .white{color: #{'hsl(var(--clr-white))'};}
+  .text-dark-blue{color: #{'hsl(var(--clr-dark-blue))'};}
+  .text-dark{color: #{'hsl(var(--clr-dark))'};}
+  .text-white{color: #{'hsl(var(--clr-white))'};}
+  .text-grey{color: #{'hsl(var(--clr-grey))'};}
