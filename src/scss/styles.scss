@@ -84,9 +84,9 @@ html {
   }
 }
 
-.search__img {
-  height: 170px;
-  border-radius: 50px;
+.game__img {
+  height: 230px;
+  border-radius: 25px;
 }
 
 .buttons {
@@ -123,12 +123,11 @@ html {
 
 .answer {
   display: flex;
-  justify-content: center;
-  gap: 48px;
+  justify-content: space-between;
 
   &__icon {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
   }
 
   &__card {

@@ -1,13 +1,14 @@
 import React from "react";
-import * as BsIcons from "react-icons/bs";
+import * as MdIcons from "react-icons/md";
 import * as BrIcons from "react-icons/gr";
 
 const AnswerCard = (props: any) => {
   return (
-    <div className="answer-card">
+    <div className="answer__card">
       {props.isCorrect ? (
         <>
-          <BsIcons.BsCircle className="answer__icon bg-red" /> <p>있을까요?</p>
+          <MdIcons.MdOutlineCircle className="answer__icon bg-red" />
+          <p>있을까요?</p>
         </>
       ) : (
         <>

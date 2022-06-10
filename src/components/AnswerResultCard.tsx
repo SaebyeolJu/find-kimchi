@@ -1,12 +1,12 @@
 import React from "react";
-import * as BsIcons from "react-icons/bs";
+import * as MdIcons from "react-icons/md";
 import * as BrIcons from "react-icons/gr";
 
-const QuizResult = (props: any) => {
+const AnswerResultCard = (props: any) => {
   return (
-    <div className="answer__card">
+    <div className="result__card">
       {props.isCorrect ? (
-        <BsIcons.BsCircle className="answer__icon" />
+        <MdIcons.MdOutlineCircle className="answer__icon bg-red" />
       ) : (
         <BrIcons.GrClose className="answer__icon" />
       )}
@@ -19,4 +19,4 @@ const QuizResult = (props: any) => {
   );
 };
 
-export default QuizResult;
+export default AnswerResultCard;
