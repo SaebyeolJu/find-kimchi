@@ -5,6 +5,7 @@ html {
   background-image: url("/src/assets/img/background_pic.svg");
   background-repeat: no-repeat;
   object-fit: contain;
+  height: 100vh;
 }
 
 #root {
@@ -88,7 +89,7 @@ html {
   border-radius: 50px;
 }
 
-.button-box {
+.buttons {
   display: flex;
   justify-content: space-between;
   // gap: 26px;
@@ -109,6 +110,9 @@ html {
   &__Info-icon {
     width: 16px;
     height: 16px;
+    :hover {
+      cursor: pointer;
+    }
   }
 
   &__input {

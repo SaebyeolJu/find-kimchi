@@ -50,6 +50,15 @@ select {
   gap: 36px;
 }
 
+input[type=text] {
+  height: auto;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 @font-face {
   font-family: "Gowun Dodum", sans-serif;
   src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
@@ -140,6 +149,7 @@ html {
   background-repeat: no-repeat;
   -o-object-fit: contain;
      object-fit: contain;
+  height: 100vh;
 }
 
 #root {
@@ -238,7 +248,7 @@ html {
   border-radius: 50px;
 }
 
-.button-box {
+.buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,6 +282,9 @@ html {
 .reports__Info-icon {
   width: 16px;
   height: 16px;
+}
+.reports__Info-icon :hover {
+  cursor: pointer;
 }
 .reports__input {
   border-radius: 4px;

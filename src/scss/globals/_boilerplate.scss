@@ -48,3 +48,10 @@ select {
 .spacing {
   gap: 36px;
 }
+
+input[type="text"] {
+  height: auto;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  appearance: none;
+}
