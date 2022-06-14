@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getKimchi } from "../controllers/posts.js";
+import { getKimchi } from "../controllers/kimchesController.js";
 
 const router = express.Router();
 
