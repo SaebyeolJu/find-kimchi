@@ -7,7 +7,10 @@ import * as IoIcons from "react-icons/io";
 export default function Main() {
   const [ingredient, setIngredient] = useState("");
 
-  const handleSearchInput = (e: React.ChangeEvent<any>) => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
+  const handleChangeInput = (e: React.ChangeEvent<any>) => {
     setIngredient(e.target.value);
   };
 
@@ -21,15 +24,16 @@ export default function Main() {
         />
         <h1 className="logo__name">김치있니?</h1>
       </div>
-      <form className="search bg-white">
+      <form className="search bg-white" onSubmit={handleSubmit}>
         <AiIcons.AiOutlineSearch className="search__icon" />
         <input
           placeholder="재료를 입력하세요."
-          className="search__form"
+          className="bg-dark-blue"
+          // className="search__form text-grey"
           // className={`${styles.search__form} ${styles.text--grey}`}
           type="search"
           value={ingredient}
-          onSubmit={handleSearchInput}
+          onChange={handleChangeInput}
         ></input>
       </form>
       <button className="btn" type="submit">

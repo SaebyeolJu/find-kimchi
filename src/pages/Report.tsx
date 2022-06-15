@@ -25,7 +25,6 @@ const Report = () => {
       ...form,
       [name]: value,
     });
-    console.log(form);
   };
 
   const onReset = () => {

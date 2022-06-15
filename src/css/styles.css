@@ -128,10 +128,6 @@ a:active {
 }
 
 /* text color */
-.text-dark-blue {
-  color: hsl(var(--clr-dark-blue));
-}
-
 .text-dark {
   color: hsl(var(--clr-dark));
 }
@@ -238,14 +234,16 @@ html {
   transition: 0.8s;
   cursor: pointer;
   color: white;
+  height: 26x;
+  width: 26px;
 }
 .icons__icon:hover {
   color: cadetblue;
 }
 
-.search__img {
-  height: 170px;
-  border-radius: 50px;
+.game__img {
+  height: 230px;
+  border-radius: 25px;
 }
 
 .buttons {
@@ -295,14 +293,13 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 48px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .answer__icon {
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
 }
 .answer__card:hover {
   cursor: pointer;

@@ -1,10 +1,9 @@
 import express from "express";
 
-import { getKimchi } from "../controllers/kimchesController.js";
+import { getKimches } from "../controllers/kimchesController.js";
 
 const router = express.Router();
 
-router.get("/", getKimchi);
-// router.post("/", getSearch);
+router.get("/", getKimches);
 
 export default router;

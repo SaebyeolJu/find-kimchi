@@ -5,11 +5,7 @@ import AnswerResultCard from "../components/AnswerResultCard";
 const Game = () => {
   const [gameCnt, setGameCnt] = useState(1);
   // const [score, setScore] = useState(0);
-  // const [answer, setAnswer] = useState();
-
-  // const handleAnswer = () => {
-  // setAnswer("");
-  // };
+  const [answer, setAnswer] = useState<any | null>(null);
 
   return (
     <div className="container">
@@ -20,10 +16,20 @@ const Game = () => {
         alt="game__img"
       />
       <h2>뉴그린 김치</h2>
-      <div className="answer">
-        <AnswerCard isCorrect={true} />
-        <AnswerCard isCorrect={false} />
-      </div>
+      {answer ? (
+        <AnswerResultCard />
+      ) : (
+        <div className="answer">
+          <AnswerCard
+            isCorrect={true}
+            onClick={() => {
+              setAnswer(true);
+              console.log(answer);
+            }}
+          />
+          <AnswerCard isCorrect={false} onClick={() => setAnswer(false)} />
+        </div>
+      )}
     </div>
   );
 };
