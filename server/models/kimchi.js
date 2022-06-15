@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const kimchiSchema = mongoose.Schema({
   name: String,
+  eng_name: String,
   img_link: String,
-  comment: String,
-  answer: Boolean,
+  source: String,
 });
 
 const Kimchi = mongoose.model("Kimchi", kimchiSchema);
