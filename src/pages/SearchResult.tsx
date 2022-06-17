@@ -1,4 +1,7 @@
 import React from "react";
+import HomeButton from "../components/HomeButton";
+import { useNavigate } from "react-router-dom";
+import ReportLink from "../components/ReportLink";
 
 const SearchResult = (props: any) => {
   return (
@@ -13,10 +16,10 @@ const SearchResult = (props: any) => {
         <p>이런..! 한국인 맞으신가요?</p>
       </div>
       <div className="buttons">
-        <button className="btn bg-red">다시 도전하기</button>
+        <HomeButton />
         <button className="btn bg-dark-blue">도와주세요...</button>
       </div>
-      <a className="">이의 / 제보하기</a>
+      <ReportLink />
     </div>
   );
 };

@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import AnswerCard from "../components/AnswerCard";
 import AnswerResultCard from "../components/AnswerResultCard";
 
+// score(점수), gameCnt(게임 횟수) 변수 설정 필요
 const Game = () => {
-  const [gameCnt, setGameCnt] = useState(1);
-  // const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState<any | null>(null);
 
   return (
     <div className="container">
-      <h1>{gameCnt} / 10</h1>
+      {/* <h1>{gameCnt} / 10</h1> */}
       <img
         className="game__img"
         src="http://www.lampcook.com/wi_files/food_material/41.jpg"

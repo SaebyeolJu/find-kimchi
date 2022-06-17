@@ -2,6 +2,8 @@ import React from "react";
 import * as MdIcons from "react-icons/md";
 import * as BrIcons from "react-icons/gr";
 
+import ReportLink from "./ReportLink";
+
 const AnswerResultCard = (props: any) => {
   return (
     <div className="result__card">
@@ -14,7 +16,7 @@ const AnswerResultCard = (props: any) => {
       <button className="btn" type="submit">
         다음
       </button>
-      <p>이의 / 제보하기</p>
+      <ReportLink />
     </div>
   );
 };
