@@ -7,6 +7,9 @@ const kimchiSchema = mongoose.Schema({
   material_link: String,
   source: String,
   isKimchi: Boolean,
+  ingredient_img: String,
+  comment: String,
+  eng_comment: String,
 });
 
 const Kimchi = mongoose.model("Kimchi", kimchiSchema);
