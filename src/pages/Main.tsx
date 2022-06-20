@@ -4,8 +4,11 @@ import * as IoIcons from "react-icons/io";
 // import style from "./App.module.css";
 // import styles from "../css/styles.css";
 
+import { useNavigate } from "react-router-dom";
+
 export default function Main() {
   const [ingredient, setIngredient] = useState("");
+  let navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -29,14 +32,17 @@ export default function Main() {
         <input
           placeholder="재료를 입력하세요."
           className="bg-dark-blue"
-          // className="search__form text-grey"
-          // className={`${styles.search__form} ${styles.text--grey}`}
           type="search"
           value={ingredient}
           onChange={handleChangeInput}
         ></input>
       </form>
-      <button className="btn" type="submit">
+      <button
+        className="btn"
+        onClick={() => {
+          navigate("/game");
+        }}
+      >
         O / X 게임
       </button>
       <div className="icons">

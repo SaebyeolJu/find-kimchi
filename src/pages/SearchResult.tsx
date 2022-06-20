@@ -1,6 +1,5 @@
 import React from "react";
 import HomeButton from "../components/HomeButton";
-import { useNavigate } from "react-router-dom";
 import ReportLink from "../components/ReportLink";
 
 const SearchResult = (props: any) => {
@@ -15,10 +14,7 @@ const SearchResult = (props: any) => {
         />
         <p>이런..! 한국인 맞으신가요?</p>
       </div>
-      <div className="buttons">
-        <HomeButton />
-        <button className="btn bg-dark-blue">도와주세요...</button>
-      </div>
+      <HomeButton />
       <ReportLink />
     </div>
   );
