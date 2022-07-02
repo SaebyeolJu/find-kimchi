@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
-// import style from "./App.module.css";
-// import styles from "../css/styles.css";
-
-import { useNavigate } from "react-router-dom";
 
 export default function Main() {
-  const [ingredient, setIngredient] = useState("");
   let navigate = useNavigate();
 
-  const handleSubmit = (e: any) => {
+  const [inputName, setInputName] = useState("");
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    navigate(`/kimchi/${inputName}`);
   };
-  const handleChangeInput = (e: React.ChangeEvent<any>) => {
-    setIngredient(e.target.value);
+
+  const handleChangeInput = (e: any) => {
+    setInputName(e.target.value);
   };
 
   return (
@@ -31,10 +31,10 @@ export default function Main() {
         <AiIcons.AiOutlineSearch className="search__icon" />
         <input
           placeholder="재료를 입력하세요."
-          className="bg-dark-blue"
+          className="search__input bg-dark-blue"
           type="search"
-          value={ingredient}
-          onChange={handleChangeInput}
+          value={inputName}
+          onKeyPress={handleChangeInput}
         ></input>
       </form>
       <button
