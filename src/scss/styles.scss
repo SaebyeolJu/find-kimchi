@@ -45,6 +45,13 @@ html {
     margin-left: 10px;
     color: #ccc;
   }
+
+  &__input {
+    color: black;
+  }
+  &__img {
+    height: 120px;
+  }
 }
 
 .logo__img {
@@ -60,9 +67,9 @@ html {
   border: 3px solid #ccc;
   transition: 0.5s;
   margin: 0 auto;
+  cursor: pointer;
 
   &:focus-visible {
-    cursor: pointer;
     background-color: cadetblue;
     transform: scale(1.2);
   }

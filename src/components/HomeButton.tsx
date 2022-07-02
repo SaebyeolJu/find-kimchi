@@ -11,7 +11,7 @@ const HomeButton = () => {
         navigate("/");
       }}
     >
-      다음
+      처음으로
     </button>
   );
 };
