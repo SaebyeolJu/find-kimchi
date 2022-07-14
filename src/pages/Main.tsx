@@ -34,7 +34,7 @@ export default function Main() {
           className="search__input bg-dark-blue"
           type="search"
           value={inputName}
-          onKeyPress={handleChangeInput}
+          onChange={handleChangeInput}
         ></input>
       </form>
       <button
