@@ -1,27 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router";
+import { useAsync } from "react-async";
 import axios from "../api/axios";
-import useAsync from "../hooks/useAsync";
 
 import HomeButton from "../components/HomeButton";
 import ReportLink from "../components/ReportLink";
 
 const SearchResult = () => {
-  const [state, refetch] = useAsync(getSearchData, [], true);
-  const { loading, data: info, error } = state<any[]>([]);
   let { searchWord }: any = useParams();
   const decodedWord = decodeURI(searchWord);
 
-  async function getSearchData(decodedWord: any) {
-    const request = await axios.get(`kimchi/${decodedWord}`);
+  const fetchAndSetInfo = useCallback(async () => {
+    const URL = `kimchi/${decodedWord}`;
+    const request = await axios.get(URL);
+
     return request.data;
-  }
+  }, [decodedWord]);
 
-  // const { loading, data: info, error } = useAsync(SearchResult);
+  const {
+    data: results,
+    error,
+    isLoading,
+  } = useAsync({
+    promiseFn: fetchAndSetInfo,
+    watch: decodedWord,
+  });
 
-  if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다.</div>;
-  if (!info) return null;
+  // 주의
+  // useEffect 는 항상 함수 반환함 -> async await를 잘못 쓰면 promise 객체를 반환해서 계속 반환함
+  // https://velog.io/@he0_077/useEffect-훅에서-async-await-함수-사용하기
 
   useEffect(() => {
     /*
@@ -30,16 +37,26 @@ const SearchResult = () => {
       .then((res) => console.log(res.text()))
       .then((actualData) => console.log(actualData));
     */
-    getSearchData(decodedWord);
+    fetchAndSetInfo();
   }, [decodedWord]);
+
+  if (isLoading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다.</div>;
+  if (!results) return <div>축하합니다. 없는 김치를 찾아냈습니다!</div>;
 
   return (
     <div className="container">
       <div className="search-box">
         <h1 className="search__name">{decodedWord} 김치</h1>
-        <img className="search__img" src={""} alt="search-img" />
-        <p>이런..! 한국인 맞으신가요?</p>
+        <img
+          className="search__img"
+          src={results.data[0].img_link}
+          width={300}
+          alt="search-img"
+        />
+        <p className="search__comment">이런.. 한국인 맞나요?</p>
       </div>
+      <p>레시피</p>
       <HomeButton />
       <ReportLink />
     </div>
