@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 import Report from "./pages/Report";
 import SearchResult from "./pages/SearchResult";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -22,6 +22,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

@@ -14,7 +14,7 @@ const Game = () => {
         src="http://www.lampcook.com/wi_files/food_material/41.jpg"
         alt="game__img"
       />
-      <h2>뉴그린 김치</h2>
+      <h2 className="txt-white">뉴그린 김치</h2>
       {answer ? (
         <AnswerResultCard />
       ) : (

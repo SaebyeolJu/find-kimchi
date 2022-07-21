@@ -7,13 +7,17 @@ const AnswerCard = (props: any) => {
     <div className="answer__card">
       {props.isCorrect ? (
         <>
-          <MdIcons.MdOutlineCircle className="answer__icon bg-red" />
-          <p>있을까요?</p>
+          <MdIcons.MdOutlineCircle
+            className={["answer__icon", "bg-dark-blue", "txt-white"].join(" ")}
+          />
+          <p className={["txt-white"].join(" ")}>있을까요?</p>
         </>
       ) : (
         <>
-          <BrIcons.GrClose className="answer__icon bg-red" />
-          <p>없을까요?</p>
+          <BrIcons.GrClose
+            className={["answer__icon", "bg-red", "txt-white"].join(" ")}
+          />
+          <p className={["txt-white"].join(" ")}>없을까요?</p>
         </>
       )}
     </div>

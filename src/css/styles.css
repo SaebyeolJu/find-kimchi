@@ -78,20 +78,19 @@ a:active {
 
 * {
   font-family: "Gowun Dodum", sans-serif;
-  color: white;
 }
 
+/* colors */
 :root {
   /* colors */
-  --clr-black: 0 0% 0%;
-  --clr-white: 100 100% 99%;
-  --clr-red: 355 76% 56%;
-  --clr-grey: 0 2% 72%
-
-  --clr-dark-blue: 214 48% 23%;
-  --clr-light-blue: 203 37% 45%;
-  --clr-dark-yellow: 33 89% 57%;
-  --clr-light-yellow: 38 95% 66%;
+  --clr-black: $black;
+  --clr-white: $white;
+  --clr-red: $red;
+  --clr-grey: $grey;
+  --clr-dark-blue: $dark-blue;
+  --clr-light-blue: $light-blue;
+  --clr-dark-yellow: $dark-yellow;
+  --clr-light-yellow: $light-yellow;
 }
 
 /* colors */
@@ -128,15 +127,15 @@ a:active {
 }
 
 /* text color */
-.text-dark {
+.txt-dark {
   color: hsl(var(--clr-dark));
 }
 
-.text-white {
+.txt-white {
   color: hsl(var(--clr-white));
 }
 
-.text-grey {
+.txt-grey {
   color: hsl(var(--clr-grey));
 }
 
@@ -184,20 +183,25 @@ html {
   border-radius: 30px;
   width: 400px;
   height: 45px;
-  border: 3px solid #ccc;
+  border: 3px solid 0 2% 72%;
   margin: 0 auto;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 .search:hover {
-  border: 3px solid darkred;
+  border: 3px solid 355 76% 56%;
 }
 .search__form {
   width: 340px;
 }
-.search__icon {
-  margin-left: 10px;
-  color: #ccc;
+.search svg {
+  margin-left: 12px;
+  color: 0 0% 0%;
+  height: 24px;
+  width: 24px;
+}
+.search__input {
+  color: 0 0% 0%;
 }
 
 .logo__img {
@@ -210,16 +214,30 @@ html {
   height: 45px;
   width: 150px;
   background-color: transparent;
-  border: 3px solid #ccc;
+  border: 3px solid 0 2% 72%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   margin: 0 auto;
-}
-.btn:focus-visible {
   cursor: pointer;
-  background-color: cadetblue;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btn:hover {
+  background-color: 355 76% 56%;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+.btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .icons {
@@ -233,12 +251,13 @@ html {
   -webkit-transition: 0.8s;
   transition: 0.8s;
   cursor: pointer;
-  color: white;
-  height: 26x;
-  width: 26px;
 }
 .icons__icon:hover {
-  color: cadetblue;
+  color: 214 48% 23%;
+}
+.icons svg {
+  height: 24px;
+  width: 24px;
 }
 
 .game__img {
@@ -253,6 +272,10 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.report :hover {
+  cursor: pointer;
 }
 
 .reports {
@@ -286,7 +309,7 @@ html {
 }
 .reports__input {
   border-radius: 4px;
-  color: black;
+  color: 0 0% 0%;
 }
 
 .answer {
