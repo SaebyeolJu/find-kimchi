@@ -3,8 +3,10 @@ import { useParams } from "react-router";
 import { useAsync } from "react-async";
 import axios from "../api/axios";
 
+import NotKimchi from "./NotKimchi";
 import HomeButton from "../components/HomeButton";
 import ReportLink from "../components/ReportLink";
+import RecipeButton from "../components/RecipeButton";
 
 const SearchResult = () => {
   let { searchWord }: any = useParams();
@@ -42,11 +44,11 @@ const SearchResult = () => {
 
   if (isLoading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다.</div>;
-  if (!results) return <div>축하합니다. 없는 김치를 찾아냈습니다!</div>;
+  if (!results) return <NotKimchi />;
 
   return (
     <div className="container">
-      <div className="search-box">
+      <div className="search-info">
         <h1 className="search__name">{decodedWord} 김치</h1>
         <img
           className="search__img"
@@ -54,10 +56,21 @@ const SearchResult = () => {
           width={300}
           alt="search-img"
         />
-        <p className="search__comment">이런.. 한국인 맞나요?</p>
+        <p className="search__comment">{results.data[0].comment}</p>
       </div>
-      <p>레시피</p>
-      <HomeButton />
+      <div className="btn-box">
+        <HomeButton />
+        <a
+          href={results.data[0].source}
+          target="_blank"
+          rel='target="_blank"'
+          className="btn"
+        >
+          레시피 보러가기
+          {/* <button className="btn">레시피 보러가기</button> */}
+        </a>
+        {/* <RecipeButton recipe_url={results.data[0].source} /> */}
+      </div>
       <ReportLink />
     </div>
   );
