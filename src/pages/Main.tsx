@@ -33,7 +33,7 @@ export const Main: React.FC = () => {
         <AiIcons.AiOutlineSearch className="search__icon" color="black" />
         <input
           placeholder="재료를 입력하세요."
-          className="search__input bg-dark-blue"
+          className="search__input"
           type="search"
           value={inputName}
           onChange={handleChangeInput}

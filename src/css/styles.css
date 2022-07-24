@@ -80,17 +80,16 @@ a:active {
   font-family: "Gowun Dodum", sans-serif;
 }
 
-/* colors */
 :root {
   /* colors */
-  --clr-black: $black;
-  --clr-white: $white;
-  --clr-red: $red;
-  --clr-grey: $grey;
-  --clr-dark-blue: $dark-blue;
-  --clr-light-blue: $light-blue;
-  --clr-dark-yellow: $dark-yellow;
-  --clr-light-yellow: $light-yellow;
+  --clr-black: 0 0% 0%;
+  --clr-white: 100 100% 99%;
+  --clr-red: 355 76% 56%;
+  --clr-grey: 0 2% 72%;
+  --clr-dark-blue: 214 48% 23%;
+  --clr-light-blue: 203 37% 45%;
+  --clr-dark-yellow: 33 89% 57%;
+  --clr-light-yellow: 38 95% 66%;
 }
 
 /* colors */
@@ -128,7 +127,7 @@ a:active {
 
 /* text color */
 .txt-dark {
-  color: hsl(var(--clr-dark));
+  color: hsl(var(--clr-black));
 }
 
 .txt-white {
@@ -142,8 +141,8 @@ a:active {
 html {
   background-image: url("/src/assets/img/background_pic.svg");
   background-repeat: no-repeat;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100vh;
 }
 
@@ -183,25 +182,25 @@ html {
   border-radius: 30px;
   width: 400px;
   height: 45px;
-  border: 3px solid 0 2% 72%;
+  border: 3px solid hsl(var(--clr-grey));
   margin: 0 auto;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 .search:hover {
-  border: 3px solid 355 76% 56%;
+  border: 3px solid hsl(var(--clr-light-yellow));
 }
 .search__form {
   width: 340px;
 }
 .search svg {
   margin-left: 12px;
-  color: 0 0% 0%;
+  color: hsl(var(--clr-black));
   height: 24px;
   width: 24px;
 }
 .search__input {
-  color: 0 0% 0%;
+  color: hsl(var(--clr-black));
 }
 
 .logo__img {
@@ -214,7 +213,7 @@ html {
   height: 45px;
   width: 150px;
   background-color: transparent;
-  border: 3px solid 0 2% 72%;
+  border: 3px solid hsl(var(--clr-grey));
   -webkit-transition: 0.5s;
   transition: 0.5s;
   margin: 0 auto;
@@ -230,7 +229,7 @@ html {
           align-items: center;
 }
 .btn:hover {
-  background-color: 355 76% 56%;
+  background-color: hsl(var(--clr-red));
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 }
@@ -253,7 +252,7 @@ html {
   cursor: pointer;
 }
 .icons__icon:hover {
-  color: 214 48% 23%;
+  color: hsl(var(--clr-light-blue));
 }
 .icons svg {
   height: 24px;
@@ -309,7 +308,7 @@ html {
 }
 .reports__input {
   border-radius: 4px;
-  color: 0 0% 0%;
+  color: hsl(var(--clr-white));
 }
 
 .answer {

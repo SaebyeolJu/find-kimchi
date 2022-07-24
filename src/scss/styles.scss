@@ -4,7 +4,7 @@
 html {
   background-image: url("/src/assets/img/background_pic.svg");
   background-repeat: no-repeat;
-  object-fit: contain;
+  object-fit: cover;
   height: 100vh;
 }
 
@@ -29,12 +29,12 @@ html {
   border-radius: 30px;
   width: 400px;
   height: 45px;
-  border: 3px solid $grey;
+  border: 3px solid hsl(#{var(--clr-grey)});
   margin: 0 auto;
   transition: 0.5s;
 
   &:hover {
-    border: 3px solid $red;
+    border: 3px solid hsl(#{var(--clr-light-yellow)});
   }
 
   &__form {
@@ -43,13 +43,13 @@ html {
 
   svg {
     margin-left: 12px;
-    color: $black;
+    color: hsl(#{var(--clr-black)});
     height: 24px;
     width: 24px;
   }
 
   &__input {
-    color: $black;
+    color: hsl(#{var(--clr-black)});
   }
 }
 
@@ -63,7 +63,7 @@ html {
   height: 45px;
   width: 150px;
   background-color: transparent;
-  border: 3px solid $grey;
+  border: 3px solid hsl(#{var(--clr-grey)});
   transition: 0.5s;
   margin: 0 auto;
   cursor: pointer;
@@ -72,7 +72,7 @@ html {
   align-items: center;
 
   &:hover {
-    background-color: $red;
+    background-color: hsl(#{var(--clr-red)});
     transform: scale(1.03);
   }
 
@@ -91,7 +91,7 @@ html {
     cursor: pointer;
 
     &:hover {
-      color: $dark-blue;
+      color: hsl(#{var(--clr-light-blue)});
     }
   }
   svg {
@@ -138,7 +138,7 @@ html {
 
   &__input {
     border-radius: 4px;
-    color: $black;
+    color: hsl(#{var(--clr-white)});
   }
 }
 
