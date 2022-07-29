@@ -6,7 +6,7 @@ const kimchiSchema = mongoose.Schema({
   img_link: String,
   material_link: String,
   source: String,
-  isKimchi: Boolean,
+  isKimchi: String,
   ingredient_img: String,
   comment: String,
   eng_comment: String,
