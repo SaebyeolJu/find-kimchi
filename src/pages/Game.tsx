@@ -1,33 +1,134 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useAsync } from "react-async";
+import axios from "../api/axios";
+import * as MdIcons from "react-icons/md";
+import * as GrIcons from "react-icons/gr";
+
 import AnswerCard from "../components/AnswerCard";
 import AnswerResultCard from "../components/AnswerResultCard";
+import GameResult from "./GameResult";
+
+import { shuffleArray } from "../function/shuffle";
 
 // score(점수), gameCnt(게임 횟수) 변수 설정 필요
 const Game = () => {
-  const [answer, setAnswer] = useState<any | null>(null);
+  const [isData, setIsData] = useState(false);
+  const [quizzes, setQuizzes] = useState();
 
+  const [currentQuiz, setCurrentQuiz] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+
+  const fetchGameInfo = useCallback(async () => {
+    try {
+      const request = await axios.get("/game");
+
+      const data_array = request.data.data[0];
+      const shuffled_array = shuffleArray(
+        data_array.t_kimches.concat(data_array.f_kimches)
+      );
+
+      setQuizzes(shuffled_array);
+      return shuffleArray;
+    } catch {
+      console.log("fetching error");
+    }
+  }, []);
+
+  const {
+    data: info,
+    error,
+    isLoading,
+  } = useAsync({
+    promiseFn: fetchGameInfo,
+  });
+
+  useEffect(() => {
+    fetchGameInfo();
+    setIsData(true);
+  }, [isData]);
+
+  if (isLoading) return <div>로딩중...</div>;
+  if (error) return <div>에러가 발생했습니다.</div>;
+  if (!info) return <div>오류가 있습니다.</div>;
+
+  /**
+   *
+   * @param user_answer : 사용자가 선택한 답. 나중에 지금 퀴즈의 답과 맞는지 비교해서 점수 count
+   * @todo
+   * @description
+   */
+
+  const handleAnswerBtnClick = (user_answer: string) => {
+    const nextQuiz = currentQuiz + 1;
+    if (nextQuiz < quizzes.length - 1) {
+      setCurrentQuiz(nextQuiz);
+      checkAnswer(user_answer);
+    } else {
+      setShowScore(true);
+    }
+  };
+
+  /**
+   *
+   * @param user_answer
+   * @description : 현재 입력한 answer과 현재 순서의 game info의 isKimchi 값이 일치한다면 점수 +1
+   * setScore = score + 1
+   * answer와 현재 순번 퀴즈의 isKimchi값이 같으면 점수 +1
+   */
+  const checkAnswer = (user_answer: string) => {
+    const quiz_answer = quizzes[currentQuiz].isKimchi;
+    const nextScore = score + 1;
+    if (user_answer === quiz_answer) {
+      setScore(nextScore);
+      console.log("correct");
+    }
+    setUserAnswer("");
+  };
+
+  console.log(showScore);
   return (
     <div className="container">
-      {/* <h1>{gameCnt} / 10</h1> */}
-      <img
-        className="game__img"
-        src="http://www.lampcook.com/wi_files/food_material/41.jpg"
-        alt="game__img"
-      />
-      <h2 className="txt-white">뉴그린 김치</h2>
-      {answer ? (
-        <AnswerResultCard />
+      {showScore ? (
+        <GameResult />
       ) : (
-        <div className="answer">
-          <AnswerCard
-            isCorrect={true}
-            onClick={() => {
-              setAnswer(true);
-              console.log(answer);
-            }}
-          />
-          <AnswerCard isCorrect={false} onClick={() => setAnswer(false)} />
-        </div>
+        <>
+          <h1 className={["game__counter", "txt-white"].join(" ")}>
+            {currentQuiz + 1} / 10
+          </h1>
+          <div className="quiz">
+            <img
+              className="game__img"
+              src={quizzes[currentQuiz]?.img_link}
+              alt="game__img"
+            />
+            <h2 className="txt-white">{quizzes[currentQuiz]?.name} 김치</h2>
+          </div>
+          <div className="answer">
+            <div
+              className="answer__card"
+              onClick={() => handleAnswerBtnClick("true")}
+            >
+              <MdIcons.MdOutlineCircle
+                className={["answer__icon", "bg-dark-blue", "txt-white"].join(
+                  " "
+                )}
+              />
+              <p className={["txt-white"].join(" ")}>있을까요?</p>
+            </div>
+            <div
+              className="answer__card"
+              onClick={() => handleAnswerBtnClick("false")}
+            >
+              <GrIcons.GrClose
+                className={["answer__icon", "bg-red", "txt-white"].join(" ")}
+              />
+              <p className={["txt-white"].join(" ")}>없을까요?</p>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
