@@ -10,7 +10,6 @@ import GameResult from "./GameResult";
 
 import { shuffleArray } from "../function/shuffle";
 
-// score(점수), gameCnt(게임 횟수) 변수 설정 필요
 const Game = () => {
   const [isData, setIsData] = useState(false);
   const [quizzes, setQuizzes] = useState();
@@ -56,16 +55,18 @@ const Game = () => {
 
   /**
    *
-   * @param user_answer : 사용자가 선택한 답. 나중에 지금 퀴즈의 답과 맞는지 비교해서 점수 count
+   * @param userAnswer : 사용자가 선택한 답. 나중에 지금 퀴즈의 답과 맞는지 비교해서 점수 count
    * @todo
    * @description
    */
 
-  const handleAnswerBtnClick = (user_answer: string) => {
+  const handleAnswerBtnClick = (userAnswer: string) => {
+    setUserAnswer(userAnswer);
+
     const nextQuiz = currentQuiz + 1;
     if (nextQuiz < quizzes.length - 1) {
       setCurrentQuiz(nextQuiz);
-      checkAnswer(user_answer);
+      checkAnswer(userAnswer);
     } else {
       setShowScore(true);
     }
@@ -73,26 +74,33 @@ const Game = () => {
 
   /**
    *
-   * @param user_answer
+   * @param userAnswer
    * @description : 현재 입력한 answer과 현재 순서의 game info의 isKimchi 값이 일치한다면 점수 +1
    * setScore = score + 1
    * answer와 현재 순번 퀴즈의 isKimchi값이 같으면 점수 +1
    */
-  const checkAnswer = (user_answer: string) => {
+  const checkAnswer = (userAnswer: string) => {
     const quiz_answer = quizzes[currentQuiz].isKimchi;
     const nextScore = score + 1;
-    if (user_answer === quiz_answer) {
+
+    console.log(userAnswer.toLocaleUpperCase(), quiz_answer);
+    if (userAnswer.toUpperCase() === quiz_answer) {
       setScore(nextScore);
       console.log("correct");
     }
     setUserAnswer("");
   };
 
-  console.log(showScore);
+  function resetGame() {
+    setScore(0);
+    setCurrentQuiz(0);
+    setShowScore(false);
+  }
+
   return (
     <div className="container">
       {showScore ? (
-        <GameResult />
+        <GameResult resetGame={resetGame} score={score} />
       ) : (
         <>
           <h1 className={["game__counter", "txt-white"].join(" ")}>
