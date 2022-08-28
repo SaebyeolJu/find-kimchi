@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useAsync } from "react-async";
 import axios from "../api/axios";
+
 import * as MdIcons from "react-icons/md";
 import * as GrIcons from "react-icons/gr";
 
@@ -83,13 +84,18 @@ const Game = () => {
     const quiz_answer = quizzes[currentQuiz].isKimchi;
     const nextScore = score + 1;
 
-    console.log(userAnswer.toLocaleUpperCase(), quiz_answer);
     if (userAnswer.toUpperCase() === quiz_answer) {
       setScore(nextScore);
-      console.log("correct");
     }
     setUserAnswer("");
   };
+
+  /* 게임 다시 시작하려면 해야하는 것
+      1. 게임 score를 0으로 리셋
+      2. gameCnt를 1로 리셋
+      -> 다시 시작하기 버튼을 누를 때 리셋 
+      -> 부모 component(game 페이지)에 gameCnt랑 score 초기화해서 보내야함
+      */
 
   function resetGame() {
     setScore(0);
