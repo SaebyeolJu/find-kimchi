@@ -1,0 +1,45 @@
+.btn--prime {
+  border-radius: 30px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 3px solid hsl(#{var(--clr-grey)});
+  transition: 0.5s;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: hsl(#{var(--clr-red)});
+    transform: scale(1.03);
+  }
+
+  &-box {
+    display: flex;
+  }
+}
+
+.btn--second {
+  border-radius: 30px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 3px solid hsl(#{var(--clr-grey)});
+  transition: 0.5s;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: hsl(#{var(--clr-light-blue)});
+    transform: scale(1.03);
+  }
+
+  &-box {
+    display: flex;
+  }
+}

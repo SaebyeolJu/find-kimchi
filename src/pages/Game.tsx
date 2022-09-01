@@ -2,25 +2,30 @@ import { useState, useCallback, useEffect } from "react";
 import { useAsync } from "react-async";
 import axios from "../api/axios";
 
-import * as MdIcons from "react-icons/md";
-import * as GrIcons from "react-icons/gr";
-
-import AnswerCard from "../components/AnswerCard";
-import AnswerResultCard from "../components/AnswerResultCard";
-import GameResult from "./GameResult";
+import AnswerCard from "../components/GameAnswerCard";
+import GameResult from "../components/GameResult";
 
 import { shuffleArray } from "../function/shuffle";
 
 const Game = () => {
+  /*
+  isData - fetch된 데이터 저장
+  games - 정리된 게임 데이터. array객체
+  currentGame - 현재 게임 순서. int형
+  score - 게임 점수. int
+  showScore - 게임 종료 후 점수를 보여주기 위해 만든 상태
+  */
   const [isData, setIsData] = useState(false);
-  const [quizzes, setQuizzes] = useState();
 
-  const [currentQuiz, setCurrentQuiz] = useState(0);
-  const [userAnswer, setUserAnswer] = useState("");
+  const [games, setGames] = useState();
+  const [currentGame, setCurrentGame] = useState(0);
 
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
+  /**
+   * @description - fetch해서 game 데이터를 받아오고, 참/거짓 순서로 된 데이터를 순서없이 섞은(shuffle) 데이터 return 해줌
+   */
   const fetchGameInfo = useCallback(async () => {
     try {
       const request = await axios.get("/game");
@@ -30,7 +35,7 @@ const Game = () => {
         data_array.t_kimches.concat(data_array.f_kimches)
       );
 
-      setQuizzes(shuffled_array);
+      setGames(shuffled_array);
       return shuffleArray;
     } catch {
       console.log("fetching error");
@@ -45,6 +50,7 @@ const Game = () => {
     promiseFn: fetchGameInfo,
   });
 
+  // fetchGameInfo로 game 데이터를 불러옴
   useEffect(() => {
     fetchGameInfo();
     setIsData(true);
@@ -55,18 +61,16 @@ const Game = () => {
   if (!info) return <div>오류가 있습니다.</div>;
 
   /**
-   *
-   * @param userAnswer : 사용자가 선택한 답. 나중에 지금 퀴즈의 답과 맞는지 비교해서 점수 count
-   * @todo
-   * @description
+   * @param userAnswer - 사용자가 선택한 답. 나중에 지금 퀴즈의 답과 맞는지 비교해서 점수 count
+   * @description - O / X 버튼 클릭하면 정답 체크, 점수 기록, 퀴즈의 개수와 진행 체크
+   * 1. 정답체크 : checkAnswer 함수 사용
+   * 2. 점수 기록 : 정답 비교하고 맞으면
+   * 3. 퀴즈 진행 체크 : 퀴즈는 총 10개. 현재 퀴즈 순서에 +1해서 다음으로 넘어감. 11이되면 showScore를 true로해서 점수를 보여줌
    */
-
   const handleAnswerBtnClick = (userAnswer: string) => {
-    setUserAnswer(userAnswer);
-
-    const nextQuiz = currentQuiz + 1;
-    if (nextQuiz < quizzes.length - 1) {
-      setCurrentQuiz(nextQuiz);
+    const nextGame = currentGame + 1;
+    if (nextGame < games.length - 1) {
+      setCurrentGame(nextGame);
       checkAnswer(userAnswer);
     } else {
       setShowScore(true);
@@ -74,33 +78,29 @@ const Game = () => {
   };
 
   /**
-   *
-   * @param userAnswer
-   * @description : 현재 입력한 answer과 현재 순서의 game info의 isKimchi 값이 일치한다면 점수 +1
-   * setScore = score + 1
-   * answer와 현재 순번 퀴즈의 isKimchi값이 같으면 점수 +1
+   * @param userAnswer - user가 고른 정답
+   * @description - 퀴즈가 정답이면(user의 answer와 현재 순서의 quiz의 isKimchi 값이 일치한다면) 점수 +1(score + 1)
    */
   const checkAnswer = (userAnswer: string) => {
-    const quiz_answer = quizzes[currentQuiz].isKimchi;
+    const quiz_answer = games[currentGame].isKimchi;
     const nextScore = score + 1;
 
     if (userAnswer.toUpperCase() === quiz_answer) {
       setScore(nextScore);
     }
-    setUserAnswer("");
   };
 
-  /* 게임 다시 시작하려면 해야하는 것
-      1. 게임 score를 0으로 리셋
-      2. gameCnt를 1로 리셋
-      -> 다시 시작하기 버튼을 누를 때 리셋 
-      -> 부모 component(game 페이지)에 gameCnt랑 score 초기화해서 보내야함
-      */
-
+  /**
+   * @description - 게임 재시작 버튼을 누를 때 시작(재시작을 위한 변수 재설정)
+   * 1. 게임 점수인 score 변수를 0으로 리셋
+   * 2. 현재 퀴즈 순서(currentQuiz)변수를 0으로 리셋
+   * 3. 퀴즈 결과를 가리기 위해 showScore도 true로 재설정
+   */
   function resetGame() {
     setScore(0);
-    setCurrentQuiz(0);
+    setCurrentGame(0);
     setShowScore(false);
+    setIsData(false);
   }
 
   return (
@@ -110,37 +110,25 @@ const Game = () => {
       ) : (
         <>
           <h1 className={["game__counter", "txt-white"].join(" ")}>
-            {currentQuiz + 1} / 10
+            {currentGame + 1} / 10
           </h1>
           <div className="quiz">
             <img
               className="game__img"
-              src={quizzes[currentQuiz]?.img_link}
+              src={games![currentGame]!.img_link}
               alt="game__img"
             />
-            <h2 className="txt-white">{quizzes[currentQuiz]?.name} 김치</h2>
+            <h2 className="txt-white">{games[currentGame]?.name} 김치</h2>
           </div>
           <div className="answer">
-            <div
-              className="answer__card"
-              onClick={() => handleAnswerBtnClick("true")}
-            >
-              <MdIcons.MdOutlineCircle
-                className={["answer__icon", "bg-dark-blue", "txt-white"].join(
-                  " "
-                )}
-              />
-              <p className={["txt-white"].join(" ")}>있을까요?</p>
-            </div>
-            <div
-              className="answer__card"
-              onClick={() => handleAnswerBtnClick("false")}
-            >
-              <GrIcons.GrClose
-                className={["answer__icon", "bg-red", "txt-white"].join(" ")}
-              />
-              <p className={["txt-white"].join(" ")}>없을까요?</p>
-            </div>
+            <AnswerCard
+              isCorrect={true}
+              handleAnswerBtnClick={handleAnswerBtnClick}
+            />
+            <AnswerCard
+              isCorrect={false}
+              handleAnswerBtnClick={handleAnswerBtnClick}
+            />
           </div>
         </>
       )}

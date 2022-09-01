@@ -138,6 +138,68 @@ a:active {
   color: hsl(var(--clr-grey));
 }
 
+.btn--prime {
+  border-radius: 30px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 3px solid hsl(var(--clr-grey));
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 0 auto;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btn--prime:hover {
+  background-color: hsl(var(--clr-red));
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+.btn--prime-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn--second {
+  border-radius: 30px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 3px solid hsl(var(--clr-grey));
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 0 auto;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btn--second:hover {
+  background-color: hsl(var(--clr-light-blue));
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+.btn--second-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 html {
   background-image: url("/src/assets/img/background_pic.svg");
   background-repeat: no-repeat;
@@ -156,7 +218,7 @@ html {
 }
 
 .container {
-  width: 60vh;
+  width: 54vh;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,37 +270,6 @@ html {
   width: 120px;
 }
 
-.btn {
-  border-radius: 30px;
-  height: 45px;
-  width: 150px;
-  background-color: transparent;
-  border: 3px solid hsl(var(--clr-grey));
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin: 0 auto;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.btn:hover {
-  background-color: hsl(var(--clr-red));
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
-}
-.btn-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .icons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,7 +291,7 @@ html {
 }
 
 .game__img {
-  height: 230px;
+  height: 220px;
   border-radius: 25px;
 }
 
@@ -325,4 +356,29 @@ html {
 }
 .answer__card:hover {
   cursor: pointer;
+}
+
+.result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+
+.game-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
 }
