@@ -1,11 +1,12 @@
-import HomeButton from "./HomeButton";
+import NavigateBtn from "./NavigateBtn";
+
 import Confetti from "react-confetti";
 import useWindowSize from "../function/useWindowSize";
 
-type GameResultProps = {
+interface GameResultProps {
   score: Number;
   resetGame: Function;
-};
+}
 
 /**
  *
@@ -31,7 +32,7 @@ const GameResult = ({ score, resetGame }: GameResultProps) => {
         >
           다시 시작하기
         </button>
-        <HomeButton />
+        <NavigateBtn btn_txt="처음으로" btn_type="btn--prime" btn_dest="" />
       </>
     </div>
   );

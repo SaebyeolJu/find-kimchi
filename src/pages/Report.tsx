@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import ReportsLabel from "../components/ReportsLabel";
+import ReportLabel from "../components/ReportLabel";
+import NavigateBtn from "../components/NavigateBtn";
 
+/**
+ *
+ * @returns - 게임 / 검색 결과에 대한 정정 의견을 남기는 페이지
+ */
 const Report = () => {
   const [form, setForm] = useState({
     kimchiName: "",
@@ -10,7 +15,7 @@ const Report = () => {
 
   const { kimchiName, link, memo } = form;
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     if (memo === "") {
       alert("입력을 확인해주세요");
     } else {
@@ -19,7 +24,7 @@ const Report = () => {
     e.preventDefault();
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({
       ...form,
@@ -37,36 +42,41 @@ const Report = () => {
 
   return (
     <div className="container">
-      <form className="reports" onSubmit={handleSubmit}>
-        <h1 className="reports__title">제보하기</h1>
-        <ReportsLabel label="김치 종류" />
+      <form className="report" onSubmit={handleSubmit}>
+        <h1 className={["report__title", "txt-white"].join(" ")}>제보하기</h1>
+        <ReportLabel label_title="김치 종류" />
         <input
-          className="reports__input"
+          className="report__input"
           value={form.kimchiName}
           placeholder="김치 이름을 남겨주세요"
           onChange={handleChange}
           name="kimchiName"
           type="text"
         />
-        <ReportsLabel label="링크" />
+        <ReportLabel label_title="링크" />
         <input
-          className="reports__input"
+          className="report__input"
           value={form.link}
           placeholder="참고 링크를 남겨주세요"
           onChange={handleChange}
           name="link"
           type="text"
         />
-        <ReportsLabel label="메모" />
+        <ReportLabel label_title="메모" />
         <input
-          className="reports__input"
+          className="report__input"
           value={form.memo}
           placeholder="메모를 남겨주세요"
           onChange={handleChange}
           name="memo"
           type="text"
         />
-        <button className="btn" onClick={onReset} type="submit">
+        <NavigateBtn btn_txt="취소" btn_type="btn--prime" btn_dest="" />
+        <button
+          className={["btn--prime", "txt-white"].join(" ")}
+          onClick={onReset}
+          type="submit"
+        >
           확인
         </button>
       </form>

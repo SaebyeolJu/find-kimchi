@@ -3,18 +3,23 @@ import { useNavigate } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
+import NavigateBtn from "../components/NavigateBtn";
+
+/**
+ * @returns - 홈페이지 메인 화면. 검색 기능 제공
+ */
 export const Main: React.FC = () => {
   let navigate = useNavigate();
 
-  const [inputName, setInputName] = useState("");
+  const [searchWord, setSearchWord] = useState("");
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate(`/kimchi/${inputName}`);
+    navigate(`/kimchi/${searchWord}`);
   };
 
-  const handleChangeInput = (e: any) => {
-    setInputName(e.target.value);
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchWord(e.target.value);
   };
 
   return (
@@ -35,22 +40,22 @@ export const Main: React.FC = () => {
           placeholder="재료를 입력하세요."
           className="search__input"
           type="search"
-          value={inputName}
+          value={searchWord}
           onChange={handleChangeInput}
         ></input>
       </form>
-      <button
-        className={["btn", "txt-white"].join(" ")}
-        onClick={() => {
-          navigate("/game");
-        }}
-      >
-        O / X 게임
-      </button>
+      <NavigateBtn
+        btn_txt="O / X 게임"
+        btn_type="btn--second"
+        btn_dest="game"
+      />
       <div className={["icons", "txt-white"].join(" ")}>
+        {/* 언어 설정 */}
         <a>
           <IoIcons.IoMdGlobe className="icons__icon text-white" />
         </a>
+
+        {/* git link */}
         <a
           href="https://github.com/SaebyeolJu/find-kimchi"
           target="_blank"

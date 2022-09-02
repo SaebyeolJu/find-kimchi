@@ -2,11 +2,10 @@
   /* colors */
   --clr-black: 0 0% 0%;
   --clr-white: 100 100% 99%;
-  --clr-red: 355 76% 56%;
   --clr-grey: 0 2% 72%;
 
-  --clr-dark-blue: 214 48% 23%;
-  --clr-light-blue: 203 37% 45%;
+  --clr-prime: 355 76% 56%;
+  --clr-second: 203 37% 45%;
 
   --clr-dark-yellow: 33 89% 57%;
   --clr-light-yellow: 38 95% 66%;
@@ -19,18 +18,17 @@
 .bg-white {
   background-color: hsl(#{var(--clr-white)});
 }
-.bg-red {
-  background-color: hsl(#{var(--clr-red)});
-}
+
 .bg-grey {
   background-color: hsl(#{var(--clr-grey)});
 }
 
-.bg-dark-blue {
-  background-color: hsl(#{var(--clr-dark-blue)});
+.bg-prime {
+  background-color: hsl(#{var(--clr-prime)});
 }
-.bg-light-blue {
-  background-color: hsl(#{var(--clr-light-blue)});
+
+.bg-second {
+  background-color: hsl(#{var(--clr-second)});
 }
 
 .bg-dark-yellow {

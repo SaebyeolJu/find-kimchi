@@ -13,7 +13,7 @@ interface searchProps {
  * @param searchWord - 사용자가 검색한 단어
  * @returns - 검색시 나오는 결과가 없을시에 나오는 페이지. Confetti 효과 포함
  */
-const NotFound = ({ searchWord }: searchProps) => {
+const NoResult = ({ searchWord }: searchProps) => {
   const { width, height } = useWindowSize();
 
   return (
@@ -28,4 +28,4 @@ const NotFound = ({ searchWord }: searchProps) => {
   );
 };
 
-export default NotFound;
+export default NoResult;

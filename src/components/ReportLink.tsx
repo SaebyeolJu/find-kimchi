@@ -1,6 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * @returns Report 페이지로 이동하는 링크 제공
+ */
 const ReportLink = () => {
   let navigate = useNavigate();
   return (
@@ -8,6 +10,7 @@ const ReportLink = () => {
       onClick={() => {
         navigate("/report");
       }}
+      className={["report__link", "txt-white"].join(" ")}
     >
       제보하기
     </a>

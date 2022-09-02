@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 
+/**
+ *
+ * @returns - confetti 효과에서 사용하는데 필요한 브라우저 창의 width, height값을 return
+ */
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,

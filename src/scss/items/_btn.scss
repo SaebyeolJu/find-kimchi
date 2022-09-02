@@ -12,7 +12,7 @@
   align-items: center;
 
   &:hover {
-    background-color: hsl(#{var(--clr-red)});
+    background-color: hsl(#{var(--clr-prime)});
     transform: scale(1.03);
   }
 
@@ -35,7 +35,7 @@
   align-items: center;
 
   &:hover {
-    background-color: hsl(#{var(--clr-light-blue)});
+    background-color: hsl(#{var(--clr-second)});
     transform: scale(1.03);
   }
 

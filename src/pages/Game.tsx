@@ -7,6 +7,9 @@ import GameResult from "../components/GameResult";
 
 import { shuffleArray } from "../function/shuffle";
 
+/**
+ * @returns - O / X 퀴즈 게임 페이지
+ */
 const Game = () => {
   /*
   isData - fetch된 데이터 저장

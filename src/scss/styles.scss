@@ -6,11 +6,13 @@ html {
   background-repeat: no-repeat;
   object-fit: cover;
   height: 100vh;
+  color: hsl(#{var(--clr-white)});
 }
 
 #root {
   display: flex;
   justify-content: center;
+  color: hsl(#{var(--clr-white)});
 }
 
 .container {
@@ -20,7 +22,7 @@ html {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  gap: 36px;
+  gap: 16px;
 }
 
 .search {
@@ -68,7 +70,7 @@ html {
     cursor: pointer;
 
     &:hover {
-      color: hsl(#{var(--clr-light-blue)});
+      color: hsl(#{var(--clr-second)});
     }
   }
   svg {
@@ -88,12 +90,12 @@ html {
 }
 
 .report {
-  :hover {
+  &__link:hover {
     cursor: pointer;
   }
 }
 
-.reports {
+.report {
   display: flex;
   flex-direction: column;
   justify-content: center;

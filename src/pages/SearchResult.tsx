@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { useParams } from "react-router";
 import { useAsync } from "react-async";
 import axios from "../api/axios";
 
-import NotKimchi from "./NotKimchi";
-import HomeButton from "../components/HomeButton";
+import NoResult from "./NoResult";
+import NavigateBtn from "../components/NavigateBtn";
 import ReportLink from "../components/ReportLink";
-import RecipeButton from "../components/RecipeButton";
 
 const SearchResult = () => {
   let { searchWord }: any = useParams();
@@ -44,33 +43,32 @@ const SearchResult = () => {
 
   if (isLoading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다.</div>;
-  if (!results) return <NotKimchi />;
+  if (!results.data[0]) return <NoResult searchWord={searchWord} />;
 
   return (
     <div className="container">
-      <div className="search-info">
-        <h1 className="search__name">{decodedWord} 김치</h1>
-        <img
-          className="search__img"
-          src={results.data[0].img_link}
-          width={300}
-          alt="search-img"
-        />
-        <p className="search__comment">{results.data[0].comment}</p>
-      </div>
-      <div className="btn-box">
-        <HomeButton />
-        <a
-          href={results.data[0].source}
-          target="_blank"
-          rel='target="_blank"'
-          className="btn"
-        >
-          레시피 보러가기
-          {/* <button className="btn">레시피 보러가기</button> */}
+      <div className="result">
+        <h1 className={["search__name", "txt-white"].join(" ")}>
+          {decodedWord} 김치
+        </h1>
+        <a href={results.data[0]?.source} target="_blank" rel='target="_blank"'>
+          <img
+            className="result__img"
+            src={results.data[0]?.img_link}
+            width={300}
+            alt="search-img"
+          />
         </a>
-        {/* <RecipeButton recipe_url={results.data[0].source} /> */}
+        <p className={["result__comment", "txt-white"].join(" ")}>
+          {results.data[0]?.comment}
+        </p>
       </div>
+      <NavigateBtn btn_txt="처음으로" btn_type="btn--prime" btn_dest="" />
+      <button className={["btn--second", "txt-white"].join(" ")}>
+        <a href={results.data[0]?.source} target="_blank" rel='target="_blank"'>
+          레시피 보러가기
+        </a>
+      </button>
       <ReportLink />
     </div>
   );
