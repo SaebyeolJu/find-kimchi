@@ -4,6 +4,8 @@ import cors from "cors";
 
 import kimchiRoutes from "./routes/kimchiRoutes.js";
 import gameRouter from "./routes/gameRouter.js";
+import reportRouter from "./routes/reportRouter.js";
+
 import connectDB from "./config/db.js";
 
 connectDB();
@@ -16,6 +18,7 @@ app.use(cors());
 
 app.use("/kimchi", kimchiRoutes);
 app.use("/game", gameRouter);
+app.use("/report", reportRouter);
 
 const PORT = process.env.PORT || 5000;
 

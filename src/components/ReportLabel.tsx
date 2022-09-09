@@ -1,5 +1,3 @@
-import * as AiIcons from "react-icons/ai";
-
 interface ReportLabelProps {
   label_title: string;
 }
@@ -12,7 +10,6 @@ const ReportLabel = ({ label_title }: ReportLabelProps) => {
   return (
     <>
       <div className={["report__label-field", "txt-white"].join(" ")}>
-        <AiIcons.AiOutlineInfoCircle className="report__Info-icon" />
         <p className="report__label">{label_title}</p>
       </div>
     </>
