@@ -4,10 +4,11 @@ import Kimchi from "../models/kimchi.js";
 
 const router = express.Router();
 
-// Search 기능 api
-// @desc   Get kimchi
-// @route  GET /api/kimchi
-
+/**
+ *
+ *  @desc   해당하는 kimchi data를 받아와 client에 보내줌
+ *  @route  GET /api/kimchi
+ */
 export const searchKimchi = async (req, res) => {
   const name = req.params.name;
   try {

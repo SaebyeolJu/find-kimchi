@@ -6,13 +6,12 @@ html {
   background-repeat: no-repeat;
   object-fit: cover;
   height: 100vh;
-  color: hsl(#{var(--clr-white)});
+  white-space: pre-wrap;
 }
 
 #root {
   display: flex;
   justify-content: center;
-  color: hsl(#{var(--clr-white)});
 }
 
 .container {
@@ -90,16 +89,10 @@ html {
 }
 
 .report {
-  &__link:hover {
-    cursor: pointer;
-  }
-}
-
-.report {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
 
   &__label-field {
     display: flex;
@@ -117,7 +110,16 @@ html {
 
   &__input {
     border-radius: 4px;
-    color: hsl(#{var(--clr-white)});
+    white-space: pre-wrap;
+  }
+
+  &__link {
+    cursor: pointer;
+
+    :hover {
+      transition: 0.5s;
+      color: hsl(#{var(--clr-light-yellow)});
+    }
   }
 }
 

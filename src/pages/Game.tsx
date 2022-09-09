@@ -30,9 +30,11 @@ const Game = () => {
    * @description - fetch해서 game 데이터를 받아오고, 참/거짓 순서로 된 데이터를 순서없이 섞은(shuffle) 데이터 return 해줌
    */
   const fetchGameInfo = useCallback(async () => {
-    try {
-      const request = await axios.get("/game");
+    const URL = `/game`;
 
+    try {
+      const request = await axios.get(URL);
+      console.log(request);
       const data_array = request.data.data[0];
       const shuffled_array = shuffleArray(
         data_array.t_kimches.concat(data_array.f_kimches)

@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+/**
+ * @description Kimchi Schema - 김치의 정보 저장. game page와 search 페이지에서 사용됨
+ */
 const kimchiSchema = mongoose.Schema({
   name: String,
   eng_name: [String],
