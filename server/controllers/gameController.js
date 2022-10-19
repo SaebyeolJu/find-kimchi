@@ -17,12 +17,30 @@ export const getGame = async (req, res) => {
       {
         $facet: {
           t_kimches: [
-            { $match: { isKimchi: "TRUE" } },
+            { $match: { is_kimchi: true } },
             { $sample: { size: T_randNum } },
+            {
+              $addFields: {
+                kor_names: { $split: ["$kor_name", ", "] },
+                eng_names: { $split: ["$eng_name", ", "] },
+                ingredient_categories: {
+                  $split: ["$ingredient_category", ", "],
+                },
+              },
+            },
           ],
           f_kimches: [
-            { $match: { isKimchi: "FALSE" } },
+            { $match: { is_kimchi: false } },
             { $sample: { size: F_randNum } },
+            {
+              $addFields: {
+                kor_names: { $split: ["$kor_name", ", "] },
+                eng_names: { $split: ["$eng_name", ", "] },
+                ingredient_categories: {
+                  $split: ["$ingredient_category", ", "],
+                },
+              },
+            },
           ],
         },
       },

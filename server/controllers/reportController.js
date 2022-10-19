@@ -27,6 +27,7 @@ export const postReport = router.post("/", async (req, res) => {
   }
 });
 
+// 같은 코드이지만 이런식으로도 가능
 // export const postReport = async (req, res) => {
 //   const report = new Report({
 //     message: req.body.message,
