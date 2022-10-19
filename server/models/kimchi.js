@@ -4,15 +4,18 @@ import mongoose from "mongoose";
  * @description Kimchi Schema - 김치의 정보 저장. game page와 search 페이지에서 사용됨
  */
 const kimchiSchema = mongoose.Schema({
-  name: String,
+  kor_name: [String],
+  kimchi_title: String,
+  score: Number,
+  kor_comment: String,
   eng_name: [String],
-  img_link: String,
-  material_link: String,
-  source: String,
-  isKimchi: String,
-  ingredient_img: String,
-  comment: String,
-  eng_comment: String,
+  is_kimchi: Boolean,
+  recipe_pic: String,
+  recipe_link: String,
+  ingredient_pic: String,
+  ingredient_link: String,
+  ingredient_category: [String],
+  search_cnt: Number,
 });
 
 const Kimchi = mongoose.model("Kimchi", kimchiSchema);
