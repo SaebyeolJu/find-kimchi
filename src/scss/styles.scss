@@ -1,41 +1,36 @@
 @use "./globals" as *;
 @use "./items" as *;
 
-html {
-  background-image: url("/src/assets/img/background_pic.svg");
-  background-repeat: no-repeat;
-  object-fit: cover;
-  height: 100vh;
-  white-space: pre-wrap;
-}
-
 #root {
   display: flex;
   justify-content: center;
+  background-image: url("/src/assets/img/background_pic.svg");
+  // background-image: url("/src/assets/img/background_pattern.png");
+  // background-repeat: repeat;
 }
 
 .container {
-  width: 54vh;
-  height: 100vh;
+  width: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  gap: 16px;
+  margin: 0 auto;
+  gap: 2rem;
 }
 
 .search {
   display: flex;
   align-items: center;
-  border-radius: 30px;
-  width: 400px;
-  height: 45px;
-  border: 3px solid hsl(#{var(--clr-grey)});
+  border-radius: 2rem;
+  width: 25rem;
+  height: 3rem;
+  border: 0.25rem solid hsl(#{var(--clr-grey)});
   margin: 0 auto;
   transition: 0.5s;
 
   &:hover {
-    border: 3px solid hsl(#{var(--clr-light-yellow)});
+    border: 0.25rem solid hsl(#{var(--clr-light-yellow)});
   }
 
   &__form {
@@ -43,10 +38,10 @@ html {
   }
 
   svg {
-    margin-left: 12px;
+    margin-left: 1rem;
     color: hsl(#{var(--clr-black)});
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   &__input {
@@ -54,33 +49,44 @@ html {
   }
 }
 
-.logo__img {
-  height: 120px;
-  width: 120px;
-}
-
-.icons {
-  display: flex;
-  gap: 20px;
-  margin: 0 auto;
-
-  &__icon {
-    transition: 0.8s;
-    cursor: pointer;
-
+.logo {
+  &__img {
+    height: 8rem;
+    width: 8rem;
     &:hover {
-      color: hsl(#{var(--clr-second)});
+      cursor: pointer;
     }
   }
+
+  &__title {
+    font-size: 2.5rem;
+  }
+}
+
+.icon-section {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.icon {
+  transition: 0.8s;
+  cursor: pointer;
+
+  :hover {
+    transition: 0.8s;
+    color: hsl(#{var(--clr-dark-yellow)});
+  }
+
   svg {
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
 
 .game__img {
-  height: 220px;
-  border-radius: 25px;
+  height: 14rem;
+  border-radius: 1.75rem;
 }
 
 .buttons {
@@ -92,24 +98,24 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 1rem;
 
   &__label-field {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 0.25rem;
   }
 
   &__Info-icon {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     :hover {
       cursor: pointer;
     }
   }
 
   &__input {
-    border-radius: 4px;
+    border-radius: 0.25rem;
     white-space: pre-wrap;
   }
 
@@ -128,8 +134,8 @@ html {
   justify-content: space-between;
 
   &__icon {
-    height: 120px;
-    width: 120px;
+    height: 7.5rem;
+    width: 7.5rem;
   }
 
   &__card {
@@ -143,11 +149,45 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
 }
 
 .game-result {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1rem;
+}
+
+.direction {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  &__img {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &--title {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    h1 {
+      font-size: 11rem;
+    }
+  }
+
+  &__img {
+    width: 9.5rem;
+    height: 9.5rem;
+    margin-top: 1.5rem;
+  }
 }
