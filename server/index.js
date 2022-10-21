@@ -19,6 +19,9 @@ app.use(cors());
 app.use("/kimchi", kimchiRoutes);
 app.use("/game", gameRouter);
 app.use("/report", reportRouter);
+app.get("/*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "public", ".././src/index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
