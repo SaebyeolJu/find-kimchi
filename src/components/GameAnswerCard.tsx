@@ -16,7 +16,7 @@ const AnswerCard = ({ isCorrect, handleAnswerBtnClick }: AnswerCardProps) => {
   return (
     <div
       className="answer__card"
-      onClick={() => handleAnswerBtnClick(isCorrect.toString())}
+      onClick={() => handleAnswerBtnClick(isCorrect)}
     >
       {isCorrect ? (
         <>

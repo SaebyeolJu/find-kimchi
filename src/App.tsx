@@ -9,6 +9,7 @@ import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import Report from "./pages/Report";
 import SearchResult from "./pages/SearchResult";
+import Direction from "./pages/Direction";
 
 const App: React.FC = () => {
   return (
@@ -18,7 +19,8 @@ const App: React.FC = () => {
         <Route path="/report" element={<Report />} />
         <Route path="/game" element={<Game />} />
         <Route path="/kimchi/:searchWord" element={<SearchResult />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/direction" element={<Direction />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </Router>
   );
