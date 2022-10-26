@@ -14,6 +14,7 @@ interface GameResultProps {
  *
  * @param score - 게임 점수
  * @param resetGame - 게임 재시작을 위한 함수. 부모 컴포턴트에서 게임관련 상태들을 리셋함
+ * @param gameResult - 게임 결과를 저장하는 배열
  */
 const GameResult = ({ score, resetGame, gameResult }: GameResultProps) => {
   const { width, height } = useWindowSize();

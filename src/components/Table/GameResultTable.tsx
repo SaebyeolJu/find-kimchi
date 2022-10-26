@@ -16,6 +16,13 @@ type Data = {
   is_correct: string;
 };
 
+/**
+ * @description - react-table 라이브러리를 사용해서 받아온 게임 결과를 테이블로 보여주는 component
+ * @param gameResult - 게임 결과를 저장하는 배열
+ * @returns 게임 결과 테이블
+ * @see GameResult.tsx
+ * @see GameResultColumns.tsx
+ */
 const GameResultTable = (gameResult: any) => {
   const result_data = JSON.parse(gameResult.gameResult);
   const columns = useMemo<Column[]>(() => COLUMNS, []);
