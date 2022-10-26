@@ -29,6 +29,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
+    "@types/react-table": "^7.7.12",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
@@ -83,6 +84,7 @@
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
+    "react-table": "^7.8.0",
     "redux": "^4.2.0",
     "sass": "^1.52.1",
     "style-loader": "^3.3.1"
