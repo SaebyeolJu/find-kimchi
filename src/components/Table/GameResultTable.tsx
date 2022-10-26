@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { useTable } from "react-table";
 
-import MOCK_DATA from "./TableTempData.json";
 import { COLUMNS } from "./GameResultColumns";
 
 type Column = {
@@ -12,18 +11,20 @@ type Column = {
 type Data = {
   number: string;
   name: string;
-  submitted_answer: string;
+  user_answer: string;
   correct_answer: string;
+  is_correct: string;
 };
 
-const GameResultTable = () => {
+const GameResultTable = (gameResult: any) => {
+  const result_data = JSON.parse(gameResult.gameResult);
   const columns = useMemo<Column[]>(() => COLUMNS, []);
-  const data = useMemo<Data[]>(() => MOCK_DATA, []);
+  const data = useMemo<Data[]>(() => result_data, []);
 
   const tableInstance = useTable({
     // @ts-ignore
-    columns: columns,
-    data: data,
+    columns,
+    data,
   });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

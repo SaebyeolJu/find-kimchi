@@ -12,11 +12,16 @@ export const COLUMNS = [
     accessor: "name",
   },
   {
-    Header: "Submitted Answer",
-    accessor: "submitted_answer",
+    Header: "User Answer",
+    accessor: "user_answer",
   },
   {
     Header: "Correct Answer",
     accessor: "correct_answer",
+  },
+
+  {
+    Header: "Is Correct",
+    accessor: "is_correct",
   },
 ];
