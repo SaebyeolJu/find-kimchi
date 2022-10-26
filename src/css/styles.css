@@ -90,7 +90,9 @@ a:active {
   /* colors */
   --clr-black: 0 0% 0%;
   --clr-white: 100 100% 99%;
-  --clr-grey: 0 2% 72%;
+  --clr-light-grey: 0 0% 90%;
+  --clr_grey: 0, 0%, 100%
+  --clr-dark-grey: 0 2% 72%;
   --clr-prime: 355 76% 56%;
   --clr-second: 203 37% 45%;
   --clr-dark-yellow: 33 89% 57%;
@@ -174,14 +176,32 @@ a:active {
           flex-direction: column;
 }
 
-.flex-row {
+.center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.space-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .btn--prime {
@@ -207,6 +227,7 @@ a:active {
 .btn--prime:hover {
   background-image: -webkit-gradient(linear, left top, right top, from(#eb3349), color-stop(51%, #f45c43), to(#eb3349));
   background-image: linear-gradient(to right, #eb3349 0%, #f45c43 51%, #eb3349 100%);
+  border: 3px solid hsl(var(--clr-white));
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 }
@@ -214,29 +235,6 @@ a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.btn-grad {
-  background-image: -webkit-gradient(linear, left top, right top, from(#eb3349), color-stop(51%, #f45c43), to(#eb3349));
-  background-image: linear-gradient(to right, #eb3349 0%, #f45c43 51%, #eb3349 100%);
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  -webkit-box-shadow: 0 0 20px #eee;
-          box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
-}
-
-.btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
 }
 
 .btn--second {
@@ -270,6 +268,37 @@ a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 20%;
+}
+
+table td,
+table th {
+  border: 1px solid hsl(var(--clr-light-grey));
+  padding: 8px;
+}
+
+table tr:nth-child(odd) {
+  background-color: hsl(var(--clr-light-grey));
+}
+
+table tr:nth-child(even) {
+  background-color: hsl(var(--clr-white));
+}
+
+table tr:hover {
+  background-color: hsl(var(--clr-light-yellow));
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: hsl(var(--clr-dark-yellow));
+  color: white;
 }
 
 #root {
@@ -367,15 +396,6 @@ a:active {
 .game__img {
   height: 14rem;
   border-radius: 1.75rem;
-}
-
-.buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .report {

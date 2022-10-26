@@ -5,8 +5,6 @@
   display: flex;
   justify-content: center;
   background-image: url("/src/assets/img/background_pic.svg");
-  // background-image: url("/src/assets/img/background_pattern.png");
-  // background-repeat: repeat;
 }
 
 .container {
@@ -87,11 +85,6 @@
 .game__img {
   height: 14rem;
   border-radius: 1.75rem;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
 }
 
 .report {
