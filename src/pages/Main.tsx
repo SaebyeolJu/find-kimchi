@@ -25,14 +25,14 @@ export const Main: React.FC = () => {
   return (
     <div className="container">
       <div className="logo">
-        <a onClick={() => navigate("/")}>
+        <a onClick={() => navigate("/direction")}>
           <img
             className="logo__img"
             src="https://cdn-icons-png.flaticon.com/512/4727/4727309.png"
             alt="logo__img"
           />
         </a>
-        <h1 className={["logo__name", "txt-white"].join(" ")}>김치있니?</h1>
+        <h1 className={["logo__title", "txt-white"].join(" ")}>김치있니?</h1>
       </div>
       <form className="search bg-white" onSubmit={handleSubmit}>
         <AiIcons.AiOutlineSearch className="search__icon" color="black" />
@@ -49,19 +49,20 @@ export const Main: React.FC = () => {
         btn_type="btn--second"
         btn_dest="game"
       />
-      <div className={["icons", "txt-white"].join(" ")}>
+      <div className={["icon-section", "txt-white"].join(" ")}>
         {/* 언어 설정 */}
-        <a>
-          <IoIcons.IoMdGlobe className="icons__icon text-white" />
+        <a className="icon">
+          <IoIcons.IoMdGlobe />
         </a>
 
         {/* git link */}
         <a
+          className="icon"
           href="https://github.com/SaebyeolJu/find-kimchi"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiIcons.AiFillGithub className="icons__icon text-white" />
+          <AiIcons.AiFillGithub />
         </a>
       </div>
     </div>
