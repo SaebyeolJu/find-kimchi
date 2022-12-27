@@ -2,7 +2,7 @@
   &__card {
     position: relative;
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     max-width: 900px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
     border: 18px solid;
@@ -40,23 +40,6 @@
     }
   }
 
-  @keyframes moveUp {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-32vh);
-    }
-  }
-  @keyframes moveDown {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(32vh);
-    }
-  }
-
   &__content {
     display: flex;
     flex-direction: column;
@@ -66,11 +49,12 @@
     text-align: center;
     background-color: hsl(#{var(--clr-bg-white)});
     width: 100%;
-    height: 100%;
+    // height: 100%;
   }
 
   &__name {
     font-size: 2em;
+    background-color: brown;
   }
 
   &__img {
@@ -81,15 +65,39 @@
     border: 0.2rem solid black;
     object-fit: cover;
   }
+
+  &__comment {
+    width: 70%;
+  }
 }
 
-@media only screen and (max-width: 900px) and (orientation: landscape) {
+.btn-section {
+  margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
   .search-result {
     &__card {
       width: 80%;
-      height: 98vh;
-      border: 8px solid;
+      border: 12px solid;
       border-image: url("/public/img/pattern/pattern_3.svg") 20% round;
+    }
+
+    .search-result {
+      &__headers {
+        display: flex;
+        flex-direction: column;
+        rotate: 90deg;
+        width: 100%;
+        top: 36%;
+        left: 0%;
+        transform: translate(0%, 0%);
+      }
+
+      &__header {
+        width: 58%;
+        max-height: 70px;
+      }
     }
 
     &__img {
@@ -124,5 +132,65 @@
 
   .report__link {
     font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  .search-result {
+    &__header {
+      width: 58%;
+      max-height: 70px;
+
+      &:nth-child(1) {
+        animation: moveLeft 1.5s ease-in-out 1;
+        animation-fill-mode: forwards;
+      }
+
+      &:nth-child(2) {
+        animation: moveRight 1.5s ease-in-out 1;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+/**
+ * Header Animation
+ * moveUP, moveDown : for portrait mode and landscape
+ * moveLeft, moveRight : for mobile landscape mode
+ */
+
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-33vh);
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(33vh);
+  }
+}
+
+// animation for mobile landscape mode
+@keyframes moveLeft {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-85vh);
+  }
+}
+@keyframes moveRight {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(85vh);
   }
 }

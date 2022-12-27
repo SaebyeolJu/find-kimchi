@@ -4,8 +4,8 @@ import axios from "../api/axios";
 
 import NoResult from "./NoResult";
 import NavigateBtn from "../components/NavigateBtn";
-import ReportLink from "../components/ReportLink";
 import CategoryIcon from "../components/CategoryIcon";
+import ReportLink from "../components/ReportLink";
 
 interface SearchResult {
   ingredient_categories: string[];
@@ -67,13 +67,7 @@ const SearchResult: React.FC<Props> = ({ searchResult }) => {
         </div>
         <div className={["search-result__content", "frame"].join(" ")}>
           <CategoryIcon IngredientCategory={result?.ingredient_categories} />
-          <h1
-            className={[
-              "search-result__name",
-              "txt-white",
-              "bg-dark-brown",
-            ].join(" ")}
-          >
+          <h1 className={["search-result__name", "txt-white"].join(" ")}>
             {decodedWord} 김치
           </h1>
           <h2

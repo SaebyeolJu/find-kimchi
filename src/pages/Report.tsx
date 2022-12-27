@@ -110,7 +110,7 @@ const Report = () => {
           type="text"
         />
         <div className="space-between">
-          <NavigateBtn btn_txt="취소" btn_type="btn--second" btn_dest="" />
+          <NavigateBtn btn_txt="취소" btn_dest="" />
           <button
             className={["btn--prime", "txt-white"].join(" ")}
             onClick={handleSubmit}
