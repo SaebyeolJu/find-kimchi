@@ -1,0 +1,7 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="30" height="30">
+	<title>&lt;Compound Path&gt;</title>
+	<style>
+		.s0 { fill: #998e61 } 
+	</style>
+	<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m300 0v300h-300v-300zm-88 16v19h35v-19zm35 37h-35v34h35zm-70-37v71h17v-71zm17 90h-17v16h17zm-54-90v106h19v-106zm107 196h-35v34h35zm-53-36h-17v17h17zm-35-36h-19v19h19zm-106-53h34v-34h-34zm53 35h17v-16h-17zm0-106v71h17v-71zm-53 0v19h34v-19zm-36 19h18v-19h-18zm0 52h18v-34h-18zm0 35h70v-16h-70zm0 37h106v-19h-106zm106 17h-17v17h17zm-106 17h70v-17h-70zm70 19h-34v34h34zm-70 34h18v-34h-18zm18 37v-19h-18v19zm52 0v-19h-34v19zm36 0v-71h-17v71zm36 0v-107h-19v107zm35 0v-71h-17v71zm53 0v-19h-35v19zm36-19h-19v19h19zm0-52h-19v34h19zm0-36h-71v17h71zm0-36h-106v19h106zm0-34h-71v16h71zm0-53h-19v34h19zm0-37h-19v19h19z"/>
+</svg>

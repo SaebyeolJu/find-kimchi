@@ -1,0 +1,7 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="30" height="30">
+	<title>&lt;Compound Path&gt;</title>
+	<style>
+		.s0 { fill: #aebd86 } 
+	</style>
+	<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m300 0v300h-300v-300zm-267 11v11h234v-11zm255 22h-11v111h-100v-33h23v-11h-23v-23h-10v145h10v-22h23v-11h-23v-34h100v112h11zm-99 55h11v-21h22v-11h-145v11h23v21h11v-21h33v166h-33v-22h-11v22h-23v11h145v-11h-22v-22h-11v22h-34v-166h34zm22 112h11v-23h33v90h12v-100h-78v10h22zm0 11v11h22v33h-166v-33h21v-11h-21v-22h-11v78h188v-78h-11v22zm-200 56h11v-112h101v34h-23v11h23v22h10v-145h-10v23h-23v11h23v33h-101v-111h-11zm77-167h-11v23h-32v-90h-12v100h78v-10h-23zm0-12v-11h-21v-32h166v32h-22v11h22v23h11v-78h-188v78h11v-23zm-77-66h11v-11h-11zm22 245h12v-90h32v23h11v-23h23v-10h-78zm-11 21v-11h-11v11zm245 0v-11h-234v11zm21-11h-11v11h11zm-21-244h-12v90h-33v-23h-11v23h-22v10h78zm21-22h-11v11h11z"/>
+</svg>
