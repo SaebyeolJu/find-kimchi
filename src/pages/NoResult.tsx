@@ -16,15 +16,19 @@ interface searchProps {
 const NoResult = ({ searchWord }: searchProps) => {
   const { width, height } = useWindowSize();
 
+  const text = `
+    축하합니다! 없는 김치를 찾아냈습니다!
+    이 기회에 담아보는건 어떨까요?
+    `;
+
   return (
     <div className="container">
       <Confetti width={width} height={height} tweenDuration={1000} />
-      <h1 className="txt-white">{searchWord} 김치는 없습니다!</h1>
-      <p className="txt-white">축하합니다! 없는 김치를 찾아냈습니다!</p>
-      <p className="txt-white">이 기회에 담아보는건 어떨까요?</p>
-      <NavigateBtn btn_txt="처음으로" btn_type="btn--prime" btn_dest="" />
+      <h1>{searchWord} 김치는 없습니다!</h1>
+      <p>{text}</p>
+      <NavigateBtn btn_txt="처음으로" btn_dest="" />
       <div className="report-box">
-        <p className="txt-white">잘못된 정보라면?</p>
+        <p>잘못된 정보라면?</p>
         <ReportLink />
       </div>
     </div>

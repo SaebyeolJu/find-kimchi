@@ -109,7 +109,7 @@ const Report = () => {
           name="message"
           type="text"
         />
-        <div className="buttons">
+        <div className="space-between">
           <NavigateBtn btn_txt="취소" btn_type="btn--second" btn_dest="" />
           <button
             className={["btn--prime", "txt-white"].join(" ")}

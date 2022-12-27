@@ -25,6 +25,11 @@ export const Main: React.FC = () => {
     const regExp = /^[ㄱ-ㅎ|가-힣|a-z|A-Z\s]+$/;
     e.preventDefault();
 
+    if (!searchWord) {
+      alert("검색어를 입력해주세요");
+      return;
+    }
+
     if (regExp.test(searchWord)) {
       // 단어 사이 공백은 제거
       searchWord.replace(/\s/g, "")
@@ -45,50 +50,65 @@ export const Main: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <div className="logo">
-        <a onClick={() => navigate("/direction")}>
-          <img
-            className="logo__img"
-            src="https://cdn-icons-png.flaticon.com/512/4727/4727309.png"
-            alt="logo__img"
-          />
-        </a>
-        <h1 className={["logo__title", "txt-white"].join(" ")}>김치있니?</h1>
-      </div>
-      {/* 검색창 */}
-      <form className="search bg-white" onSubmit={handleSubmit}>
-        <AiIcons.AiOutlineSearch className="search__icon" color="black" />
-        <input
-          placeholder="재료를 입력하세요."
-          className="search__input"
-          type="search"
-          value={searchWord}
-          onChange={handleChangeInput}
-        ></input>
-      </form>
-      <NavigateBtn
-        btn_txt="O / X 게임"
-        btn_type="btn--second"
-        btn_dest="game"
-      />
-      <div className={["icon-section", "txt-white"].join(" ")}>
-        {/* 언어 설정 버튼 */}
-        <a className="icon">
-          <IoIcons.IoMdGlobe />
-        </a>
+    <>
+      <img className="roof" src="/img/roof.png" />
+      <main>
+        <div className="main__door-wrapper">
+          <img className="main__door main__door--left" />
+          <img className="main__door main__door--right" />
+          <div className="main__content">
+            <div className="main__logo">
+              <a onClick={() => navigate("/direction")}>
+                <img
+                  className="main__logo-img"
+                  src="/img/logo.svg"
+                  alt="logo__img"
+                />
+              </a>
+              <h2 className="main__logo-title">김치있니?</h2>
+            </div>
 
-        {/* git repository로 가는 link */}
-        <a
-          className="icon"
-          href="https://github.com/SaebyeolJu/find-kimchi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <AiIcons.AiFillGithub />
-        </a>
-      </div>
-    </div>
+            {/* 검색창 */}
+            <form className="main__search-form" onSubmit={handleSubmit}>
+              <AiIcons.AiOutlineSearch
+                className="main__search-form-icon-search"
+                color="black"
+              />
+              <input
+                placeholder="재료를 입력하세요."
+                className="main__search-form-input-field"
+                type="search"
+                value={searchWord}
+                onChange={handleChangeInput}
+              ></input>
+            </form>
+
+            <div className="main__btn-section">
+              <NavigateBtn btn_txt="O / X 게임" btn_dest="game" />
+              <NavigateBtn btn_txt="MBTI" btn_dest="game" />
+            </div>
+
+            <div className={["main__icon-section", "txt-white"].join(" ")}>
+              {/* 언어 설정 버튼 */}
+              <a className="main__icon">
+                <IoIcons.IoMdGlobe />
+              </a>
+
+              {/* git repository로 가는 link */}
+              <a
+                className="main__icon"
+                href="https://github.com/SaebyeolJu/find-kimchi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiIcons.AiFillGithub />
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div className="stone"></div>
+    </>
   );
 };
 

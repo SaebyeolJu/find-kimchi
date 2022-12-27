@@ -7,18 +7,30 @@ import NavigateBtn from "../components/NavigateBtn";
 import ReportLink from "../components/ReportLink";
 import CategoryIcon from "../components/CategoryIcon";
 
-import Button from "../components/Button";
+interface SearchResult {
+  ingredient_categories: string[];
+  kimchi_title: string;
+  kor_comment: string;
+  recipe_link: string;
+  recipe_pic: string;
+  is_kimchi: boolean;
+}
 
-const SearchResult = () => {
-  let { searchWord }: any = useParams();
-  const decodedWord = decodeURI(searchWord);
-  const [searchResult, setSearchResult] = useState();
+interface Props {
+  searchResult?: SearchResult | null;
+  searchWord?: string;
+}
+
+const SearchResult: React.FC<Props> = ({ searchResult }) => {
+  let { searchWord } = useParams();
+  const decodedWord = searchWord ? decodeURI(searchWord) : "";
+  const [result, setResult] = useState<SearchResult | null>(null);
 
   const fetchInfo = useCallback(async () => {
     const URL = `kimchi/${decodedWord}`;
     const request = await axios.get(URL);
 
-    setSearchResult(request.data.data[0]);
+    setResult(request.data.data[0]);
     return request.data.data[0];
   }, [decodedWord]);
 
@@ -36,55 +48,54 @@ const SearchResult = () => {
   // useEffect 는 항상 함수 반환함 -> async await를 잘못 쓰면 promise 객체를 반환해서 계속 반환함
   // https://velog.io/@he0_077/useEffect-훅에서-async-await-함수-사용하기
 
-  if (!searchResult || !searchResult.is_kimchi)
-    return <NoResult searchWord={searchWord} />;
+  if (!result || !result.is_kimchi) return <NoResult searchWord={searchWord} />;
 
   return (
-    <div className="result">
-      <div className="result__header">
-        <img
-          className="result__header-img"
-          src={`/img/scroll/scroll_folded.png`}
-          alt="scroll"
-        />
-        <img
-          className="result__header-img"
-          src={`/img/scroll/scroll_folded.png`}
-          alt="scroll"
-        />
-      </div>
-      <div className="result__card">
-        <div className="result__sidebar"></div>
-        <div className="result__content">
-          <CategoryIcon category={searchResult?.ingredient_categories} />
+    <div className="search-result">
+      <div className="search-result__card">
+        <div className="search-result__headers">
+          <img
+            className="search-result__header"
+            src={`/img/scroll/scroll_folded.png`}
+            alt="scroll"
+          />
+          <img
+            className="search-result__header"
+            src={`/img/scroll/scroll_folded.png`}
+            alt="scroll"
+          />
+        </div>
+        <div className={["search-result__content", "frame"].join(" ")}>
+          <CategoryIcon IngredientCategory={result?.ingredient_categories} />
           <h1
-            className={["result__name", "txt-white", "bg-dark-brown"].join(" ")}
+            className={[
+              "search-result__name",
+              "txt-white",
+              "bg-dark-brown",
+            ].join(" ")}
           >
             {decodedWord} 김치
           </h1>
-          <h2 className={["result__title", "txt-dark", "italic"].join(" ")}>
-            {searchResult?.kimchi_title}
-          </h2>
-          <a
-            href={searchResult?.recipe_link}
-            target="_blank"
-            rel='target="_blank"'
+          <h2
+            className={["search-result__title", "txt-dark", "italic"].join(" ")}
           >
+            {result?.kimchi_title}
+          </h2>
+          <a href={result?.recipe_link} target="_blank" rel='target="_blank"'>
             <img
-              className="result__img"
-              src={searchResult?.recipe_pic}
-              width={300}
+              className="search-result__img"
+              src={result?.recipe_pic}
               alt="search-img"
             />
           </a>
-          <p className={["result__comment", "txt-dark"].join(" ")}>
-            {searchResult?.kor_comment}
+          <p className={["search-result__comment", "txt-dark"].join(" ")}>
+            {result?.kor_comment}
           </p>
-          <div className="buttons">
-            <NavigateBtn btn_txt="처음으로" btn_type="btn--prime" btn_dest="" />
-            <button className={["btn--second", "txt-dark"].join(" ")}>
+          <div className="btn-section">
+            <NavigateBtn btn_txt="처음으로" btn_dest="" />
+            <button className={["btn"].join(" ")}>
               <a
-                href={searchResult?.recipe_link}
+                href={result?.recipe_link}
                 target="_blank"
                 rel='target="_blank"'
               >
@@ -92,10 +103,8 @@ const SearchResult = () => {
               </a>
             </button>
           </div>
-          <div className="result__side"></div>
           <ReportLink />
         </div>
-        <div className="result__sidebar"></div>
       </div>
     </div>
   );

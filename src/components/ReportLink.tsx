@@ -10,7 +10,7 @@ const ReportLink = () => {
       onClick={() => {
         navigate("/report");
       }}
-      className={["report__link", "txt-white"].join(" ")}
+      className={["report__link", "txt-dark"].join(" ")}
     >
       제보하기
     </a>

@@ -9,11 +9,11 @@ type Column = {
 };
 
 type Data = {
-  number: string;
+  gameIdx: string;
   name: string;
-  user_answer: string;
-  correct_answer: string;
-  is_correct: string;
+  userAnswer: string;
+  correctAnswer: string;
+  isCorrect: string;
 };
 
 /**
@@ -42,16 +42,9 @@ const GameResultTable = (gameResult: any) => {
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(
-              (column) => (
-                console.log(column),
-                (
-                  <th {...column.getHeaderProps()}>
-                    {column.render("Header")}
-                  </th>
-                )
-              )
-            )}
+            {headerGroup.headers.map((column) => (
+              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+            ))}
           </tr>
         ))}
       </thead>

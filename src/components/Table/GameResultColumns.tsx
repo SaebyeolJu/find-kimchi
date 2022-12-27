@@ -4,24 +4,24 @@
 
 export const COLUMNS = [
   {
-    Header: "number",
-    accessor: "number",
+    Header: "순서",
+    accessor: "gameIdx",
   },
   {
-    Header: "Name",
+    Header: "이름",
     accessor: "name",
   },
   {
-    Header: "User Answer",
-    accessor: "user_answer",
+    Header: "내 선택",
+    accessor: "userAnswer",
   },
   {
-    Header: "Correct Answer",
-    accessor: "correct_answer",
+    Header: "정답",
+    accessor: "correctAnswer",
   },
 
   {
-    Header: "Is Correct",
-    accessor: "is_correct",
+    Header: "정답여부",
+    accessor: "isCorrect",
   },
 ];
