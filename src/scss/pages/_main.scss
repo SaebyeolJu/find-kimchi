@@ -1,0 +1,359 @@
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  justify-content: center;
+  outline: 1rem solid rgba(139, 115, 98);
+  background-color: hsl(#{var(--clr-bg-white)});
+  z-index: 1;
+}
+
+/* main의 door */
+.main {
+  &__door-wrapper {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__door {
+    position: absolute;
+    height: 100%;
+    width: 28.4%;
+    background-image: url("/public/img/door.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.3);
+
+    &--right {
+      left: 50%;
+      background-position: 0 0;
+      animation: open-door-right 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        forwards;
+      transition: 0.5s;
+      transform-origin: right center;
+    }
+
+    &--left {
+      right: 50%;
+      background-position: 100% 0;
+      animation: open-door-left 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        forwards;
+      transition: 0.5s;
+      transform-origin: left center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+
+    &-img {
+      height: 7.5rem;
+      width: 7.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-title {
+      font-size: 2.5rem;
+      color: black;
+    }
+  }
+
+  &__search {
+    &-form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 3rem;
+      margin: 0 auto;
+      transition: 0.25s;
+      padding-left: 1rem;
+      border: 0.15rem solid black;
+      border-radius: 2rem;
+      background-color: white;
+
+      &:hover {
+        border: 0.2rem solid hsl(#{var(--clr-light-yellow)});
+      }
+
+      &-icon-search {
+        width: 24px;
+        height: 24px;
+      }
+
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        width: 85%;
+        height: 20px;
+        line-height: 24px;
+        color: hsl(#{var(--clr-grey)});
+        margin-left: 1%;
+        padding-bottom: 2px;
+      }
+    }
+  }
+
+  &__btn-section {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  &__icon {
+    &-section {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0 auto;
+    }
+
+    display: flex;
+    transition: 0.8s;
+    cursor: pointer;
+    border: 0.3px solid black;
+    border-radius: 2rem;
+    background-color: black;
+
+    :hover {
+      transition: 0.8s;
+      color: hsl(#{var(--clr-dark-yellow)});
+    }
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+}
+
+.roof {
+  position: absolute;
+  height: 15%;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
+
+.stone {
+  position: absolute;
+  height: 5%;
+  width: 100%;
+  background-image: url("/public/img/stone.png");
+  bottom: 0;
+}
+
+/* Door open Animation */
+
+@keyframes open-door-left {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    width: 25%;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes open-door-right {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    width: 25%;
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .main {
+    &__search-form {
+      width: 85%;
+
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// horizontal tablet
+@media (max-width: 640px) {
+  .main {
+    &__logo {
+      &-img {
+        height: 7rem;
+        width: 7rem;
+      }
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__search-form {
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        font-size: 16px;
+      }
+
+      &__icon-search {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    &__logo {
+      &-img {
+        height: 6rem;
+        width: 6rem;
+      }
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__search-form {
+      width: 83%;
+
+      &-icon-search {
+        width: 16px;
+        height: 16px;
+      }
+
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        font-size: 14px;
+      }
+    }
+
+    &__btn-section {
+      gap: 2rem;
+    }
+
+    &__icon-section {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    &__logo {
+      &-img {
+        height: 5rem;
+        width: 5rem;
+      }
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__content {
+      gap: 1rem;
+    }
+
+    &__search-form {
+      &-icon-search {
+        width: 14px;
+        height: 14px;
+      }
+
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        font-size: 14px;
+      }
+    }
+
+    &__btn-section {
+      gap: 0.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) and (orientation: landscape) {
+  .main {
+    &__content {
+      gap: 0.5rem;
+    }
+
+    &__logo {
+      &-img {
+        height: 5.5rem;
+        width: 5.5rem;
+      }
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__search-form {
+      height: 2.5rem;
+      width: 65%;
+
+      &-icon-search {
+        width: 18px;
+        height: 18px;
+      }
+
+      &-input-field,
+      &-input-field:focus,
+      &-input-field:active {
+        font-size: 16px;
+      }
+    }
+
+    &__btn-section {
+      gap: 2rem;
+    }
+
+    &__icon {
+      &-section {
+        gap: 2rem;
+      }
+
+      svg {
+        height: 1.2rem;
+        width: 1.2rem;
+      }
+    }
+  }
+}

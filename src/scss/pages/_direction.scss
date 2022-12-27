@@ -1,0 +1,12 @@
+.direction {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  // align-items: center;
+
+  &__img {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+  white-space: pre-wrap;
+}

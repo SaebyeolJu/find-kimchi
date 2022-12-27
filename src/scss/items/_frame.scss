@@ -1,0 +1,19 @@
+.frame {
+  border-image-slice: 140 140 140 140;
+  border-image-width: 35px 35px 35px 35px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+  border-image-source: url("/public/img/frame.svg");
+}
+
+@media screen and (orientation: landscape) {
+  .frame {
+    border-image-width: 30px 30px 30px 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .frame {
+    border-image-width: 25px 25px 25px 25px;
+  }
+}

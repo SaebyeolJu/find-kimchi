@@ -1,0 +1,29 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid hsl(#{var(--clr-light-grey)});
+  padding: 6px;
+}
+
+table tr:nth-child(odd) {
+  background-color: hsl(#{var(--clr-light-grey)});
+}
+
+table tr:nth-child(even) {
+  background-color: hsl(#{var(--clr-white)});
+}
+
+table tr:hover {
+  background-color: hsl(#{var(--clr-light-yellow)});
+}
+
+table th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: hsl(#{var(--clr-dark-yellow)});
+  color: white;
+}

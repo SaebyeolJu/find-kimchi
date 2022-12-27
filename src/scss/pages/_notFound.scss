@@ -1,0 +1,22 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  &--title {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    line-height: 11rem;
+
+    h1 {
+      font-size: 11rem;
+    }
+  }
+
+  &__img {
+    width: 9.5rem;
+    height: 9.5rem;
+    margin-top: 1.5rem;
+  }
+}

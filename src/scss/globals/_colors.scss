@@ -4,7 +4,7 @@
   --clr-white: 100 100% 99%;
 
   --clr-light-grey: 0 0% 90%;
-  --clr_grey: 0, 0%, 100%
+  --clr_grey: 0, 0%, 100%;
   --clr-dark-grey: 0 2% 72%;
 
   --clr-prime: 355 76% 56%;
@@ -12,19 +12,25 @@
 
   --clr-dark-yellow: 33 89% 57%;
   --clr-light-yellow: 38 95% 66%;
+
+  --clr-dark-brown: 24 22% 17%;
+
+  --clr-bg-white: 33 100% 98%;
 }
 
-/* colors */
-.bg-black {
-  background-color: hsl(#{var(--clr-black)});
-}
-.bg-white {
-  background-color: hsl(#{var(--clr-white)});
-}
-
-.bg-grey {
-  background-color: hsl(#{var(--clr-grey)});
-}
+// color palette
+$colors: (
+  "white": hsl(#{var(--clr-white)}),
+  "black": hsl(#{var(--clr-black)}),
+  "grey": hsl(#{var(--clr-grey)}),
+  "dark-grey": hsl(#{var(--clr-dark-grey)}),
+  "light-grey": hsl(#{var(--clr-light-grey)}),
+  "dark-yellow": hsl(#{var(--clr-dark-yellow)}),
+  "light-yellow": hsl(#{var(--clr-light-yellow)}),
+  "dark-brown": hsl(#{var(--clr-dark-brown)}),
+  "prime": hsl(#{var(--clr-prime)}),
+  "second": hsl(#{var(--clr-second)}),
+);
 
 .bg-prime {
   background-color: hsl(#{var(--clr-prime)});
@@ -34,20 +40,19 @@
   background-color: hsl(#{var(--clr-second)});
 }
 
-.bg-dark-yellow {
-  background-color: hsl(#{var(--clr-dark-yellow)});
-}
-.bg-light-yellow {
-  background-color: hsl(#{var(--clr-light-yellow)});
-}
-
 /* text color */
 .txt-dark {
   color: hsl(#{var(--clr-black)});
 }
+
 .txt-white {
   color: hsl(#{var(--clr-white)});
 }
+
 .txt-grey {
   color: hsl(#{var(--clr-grey)});
+}
+
+.txt-dark-brown {
+  color: hsl(#{var(--clr-dark-brown)});
 }

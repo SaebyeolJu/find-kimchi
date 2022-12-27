@@ -1,26 +1,49 @@
-// 700px, 900px, 1440px
-// mobile, tablet, pc
-$breakpoints-up: (
-  "small": 43.75em,
-  "medium": 56.25em,
-  "large": 90em,
+$breakpoints: (
+  "xs": 0px,
+  "sm": 480px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1600px,
 );
 
-// 699.98px, 899.98px, 1439.98px
-$breakpoints-down: (
-  "small": 43.7485em,
-  "medium": 56.24875em,
-  "large": 89.99875em,
-);
-
-@mixin breakpoint($size) {
-  @media (min-width: map-get($breakpoints-up, $size)) {
+@mixin xs {
+  @media (min-width: map-get($breakpoints, "xs")) {
     @content;
   }
 }
 
-@mixin breakpoint-down($size) {
-  @media (max-width: map-get($breakpoints-down, $size)) {
+@mixin sm {
+  @media (min-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: map-get($breakpoints, "xxl")) {
+    @content;
+  }
+}
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
     @content;
   }
 }

@@ -1,22 +1,17 @@
-// 2022 ㅣ google font에 security issue가 있어서 다운 받아서 썼음
-
-$main-kr: "Gowun Dodum", sans-serif;
-
 @font-face {
   font-family: "Gowun Dodum", sans-serif;
   src: url("../assets/font/GowunDodum-Regular.ttf") format("truetype");
 }
 
-// @font-face {
-//   font-family: --ff-main-eng;
-//   src: url("../assets/font/Raleway/Raleway-Medium.ttf") format("truetype");
-// }
-
-h1,
-h2,
-h3 {
-  line-height: 1.1;
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url("../assets/font/Raleway/Raleway-Medium.ttf") format("truetype");
 }
+
+// font
+// $font-family: "Roboto", sans-serif;
+$font-prime: "Gowun Dodum", sans-serif;
+$font-second: "Noto Sans KR", sans-serif;
 
 a,
 a:visited,
@@ -30,5 +25,5 @@ a:active {
 }
 
 * {
-  font-family: $main-kr;
+  font-family: $font-prime;
 }
